@@ -6,7 +6,7 @@
 
 * Creation Date : 28-11-2011
 
-* Last Modified : Wed Nov 30 01:39:28 2011
+* Last Modified : Wed Nov 30 01:44:27 2011
 
 * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -14,11 +14,13 @@ _._._._._._._._._._._._._._._._._._._._._.*/
 
 #include "vacation.h"
 
+int n;
+int ltemp;
+int dayT[500000];
+
 int main()
 {
-    unsigned int i,n, pivotL, pivotR, tempresult, days;
-    int ltemp;
-    int dayT[500000];
+    unsigned int i, pivotL, pivotR, tempresult, days;
     double avg;
 
     scanf("%d %d", &n, &ltemp);
