@@ -6,7 +6,7 @@
 
 * Creation Date : 28-11-2011
 
-* Last Modified : Wed Nov 30 01:27:17 2011
+* Last Modified : Wed Nov 30 01:39:28 2011
 
 * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -22,7 +22,7 @@ int main()
     double avg;
 
     scanf("%d %d", &n, &ltemp);
-    for (i=0; i<n-1; i++)
+    for (i=0; i<n; i++)
     {
         scanf("%d", &dayT[i]);
         printf("Temperature of day %d is %d \n",i,dayT[i]);
@@ -37,7 +37,7 @@ int main()
                 days = 1;
             }
             pivotL = pivotR = i;
-            tempresult = dayfinder(pivotL, pivotR, avg,days);
+            tempresult = dayfinder(pivotL, pivotR, avg, days);
             if (tempresult > days)
             {
                 days = tempresult;
@@ -50,11 +50,13 @@ return 0;
 
 unsigned int dayfinder(unsigned int pivotL, unsigned int pivotR, double avg, unsigned int days)
 {
-    unsigned int maxstepL, maxstepR;
+    unsigned int maxstepL, maxstepR, tdays;
     double avgtemp;
 
 
     maxstepL = maxstepR = 0;    //initialization
+    tdays = days;
+    avgtemp = avg;
 
     if (maxstepL == 0)
     {
@@ -77,5 +79,3 @@ unsigned int dayfinder(unsigned int pivotL, unsigned int pivotR, double avg, uns
         }
     }
 }
-
-
