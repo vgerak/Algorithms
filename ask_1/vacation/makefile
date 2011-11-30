@@ -1,9 +1,15 @@
+CC = g++
+CFLAGS = -Wall -Wextra -Wuninitialized -g
+
 all:		vacation
 vacation:	vacation.o
-	gcc vacation.o -o vacations -Wall
+	${CC} vacation.o -o vacation ${LDFLAGS}
 vacation.o:	vacation.c vacation.h
-	gcc -c vacation.c -o vacation.o -Wall
+	${CC} -c vacation.c -o vacation.o ${CFLAGS}
 
 .PHONY:	clean
 clean:
 	rm vacation.o vacation
+test:
+	./vacation < testcases/input${TEST}.txt
+	cat testcases/output${TEST}.txt

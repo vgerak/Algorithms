@@ -6,15 +6,15 @@
 
 * Creation Date : 28-11-2011
 
-* Last Modified : Wed Nov 30 01:45:26 2011
+* Last Modified : Wed Nov 30 17:17:23 2011
 
 * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
 _._._._._._._._._._._._._._._._._._._._._.*/
-
 #include "vacation.h"
 
-int n;
+
+unsigned int n;
 int ltemp;
 int dayT[500000];
 
@@ -26,6 +26,7 @@ int main()
     scanf("%d %d", &n, &ltemp);
     for (i=0; i<n; i++)
     {
+        //dayT[i] = rand();
         scanf("%d", &dayT[i]);
         printf("Temperature of day %d is %d \n",i,dayT[i]);
     }
