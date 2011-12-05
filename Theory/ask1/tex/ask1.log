@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2011.11.14)  4 DEC 2011 12:48
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2011.11.14)  5 DEC 2011 15:04
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -819,42 +819,30 @@ File: title/ntua_logo.eps Graphic file (type eps)
 <title/ntua_logo.eps>
 Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
 Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
-Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <24.88> on input line 20.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <20.74> on input line 20.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 20.
-Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
+(Font)              <12> on input line 20.
  [1
 
 
 ])
 Font mapping `TeX-text.tec' for font `DejaVu Serif Bold' not found.
-LaTeX Info: Redefining \anw@print on input line 32.
-
-Underfull \hbox (badness 10000) in paragraph at lines 32--34
-
- []
-
 Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 34.
-LaTeX Info: Redefining \anw@print on input line 72.
-[1
+(Font)              <5> on input line 37.
+ [1
 
 ]
-LaTeX Info: Redefining \anw@print on input line 116.
-LaTeX Info: Redefining \anw@print on input line 121.
+Missing character: There is no Α in font cmmi10!
  [2] (./ask1.aux (./title/title.aux)) ) 
 Here is how much of TeX's memory you used:
- 16268 strings out of 494146
- 336377 string characters out of 3152894
- 347447 words of memory out of 3000000
- 19318 multiletter control sequences out of 15000+200000
- 7479 words of font info for 49 fonts, out of 3000000 for 9000
+ 16258 strings out of 494146
+ 336077 string characters out of 3152894
+ 345456 words of memory out of 3000000
+ 19310 multiletter control sequences out of 15000+200000
+ 6548 words of font info for 44 fonts, out of 3000000 for 9000
  1018 hyphenation exceptions out of 8191
- 50i,10n,37p,616b,343s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 50i,7n,37p,616b,313s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on ask1.pdf (3 pages).

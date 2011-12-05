@@ -1,8 +1,8 @@
+%{{{Header
 \documentclass[a4paper,10pt]{article} \usepackage{anysize}
 \marginsize{2cm}{2cm}{1cm}{1cm}
 %\textwidth 6.0in \textheight = 664pt
 \usepackage{xltxtra}
-\usepackage{xunicode}
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{xgreek}
@@ -13,93 +13,77 @@
 \usepackage{framed}
 \usepackage{relsize}
 \usepackage{float}
-\usepackage{fontspec}
 \setmainfont[Mapping=TeX-text]{DejaVu Serif}
+\newcommand{\tab}{\hspace*{3em}}
 
 %\setmainfont{Arial}
 %\setsansfont{FreeSans}
 %\setmonofont{FreeMono}
 \begin{document}
 %\def\thesubsection {\alph{subsection}}
-\renewcommand{\labelenumi}{\alph{enumi}}
-\renewcommand{\labelenumii}{(\roman{enumii})}
+\renewcommand{\labelenumi}{\roman{enumi})}
+\renewcommand{\labelenumii}{(\arabic{enumii})}
 
 \include{title/title}
+%}}}
 
+%{{{Ταξινόμηση
 \section{Ασυμπτωτικός συμβολισμός, Αναδρομικές
 Σχέσεις} \setcounter{section}{1}
 \begin{enumerate}
-\item Ταξινόμηση\\
-\begin{itemize}
+
+\item Ταξινόμηση
+\begin{enumerate}
 \item $\log {n^3}$
-\item $\sqrt{n}*(\log{n})^{50}$
-\item $\frac{n}{\log{\log{n}}} $
-\item $\log{n!}=n*\log{n} $
-\item $(\log {n})^{\sqrt{n}} $
-\item $ $
-\item $ $
-\item $ $
-\item $ $
-\item $ $
-\item $ $
-\item $ $
-\item $ $
-\item $ $
-\item $ $
-\item $ $
-\item $ $
-\end{itemize}
-\begin{tabular}{l l}
-$ n*3^n$ & $\Rightarrow O(3^n)$ \\
-$ n^{1.01}$ & $\Rightarrow O(n^{1.01})$\\
-$ 5^{\log _2 {n}}$ & $\Rightarrow O(n^{2.321})$\\
-$ \sum_{k=1}^{n}k^5$ & $\Rightarrow O(n^6)$\\
-$ 2^{{\log _2 {n}}^4}$ & $\Rightarrow O(n^4)$\\
-$ {\log^{\log{n}}{n}}$ & $\Rightarrow O()$\\
-$ \frac{n}{\log\log{n}}$ & $\Rightarrow O()$\\
-$ \exp{\frac{n}{\ln{n}}}$ & $\Rightarrow O()$\\
-$ \log{n^3}$ & $\Rightarrow O()$\\
-$ \sqrt{n}*(\log{n})^{50}$ & $\Rightarrow O()$\\
-$ n*(\log{n})^{10}$ & $\Rightarrow O()$\\
-$ (\log{n})^{\sqrt{n}}$ & $\Rightarrow O()$\\
-$ n^{\log{\log{n}}}$ & $\Rightarrow O()$\\
-$ 2^{2*n}$ & $\Rightarrow O(2^{n})$\\
-$ \sqrt{n!}$ & $\Rightarrow O()$\\
-$ \log{(n!)}$ & $\Rightarrow O(n*\log{n})$\\
+\item $\sqrt{n}*\log^{50}{n} $
+\item $\frac{n}{\log{\log{n}} } $
+\item $\log{n!} $
+\item $n*\log^{10}{n} $
+\item $n^{1.01} $
+\item $5^{\log_{2}{n}} $
+\item $\sum_{k=1}^n{k^5} = {k^6}$
+\item $\log^{\log{n}}{n} = n^{\log{\log{n}} } $
+\item $2^{\log_2^4{n}} $
+\item $\log^{\sqrt{n}}{n} $
+\item $e^{\frac{n}{\ln{n}} } $
+\item $n*3^n $
+\item $2^{2*n} $
+\item $\sqrt{n!} $
+\end{enumerate}
+%}}}
 
-\end{tabular}
-
+%{{{Τάξη μεγέθους
 \item Τάξη Μεγέθους
 \begin{enumerate}
-\item $T(n)=5*T(n/7)+n*\log(n)$
+\item $T(n)=5T(n/7)+n\log(n)$ ,\tab ($a=5 , b=7$) \\
 $\Rightarrow n^{\log _7 {5}} = n^{0.827}$
-$\Rightarrow n^{0.827} < n*\log{n}$\\
-$\Rightarrow T(n) \in \Theta(n*\log{n})$
+$\Rightarrow n^{0.827} < n < n\log{n}$\\
+$\Rightarrow T(n) \in \Theta(n\log{n})$
 
-\item $T(n) = 4*T(n/5)+n/\log^2{n}$
+\item $T(n) = 4T(n/5)+n/\log^2{n}$ ,\tab ($a=5 , b=5$)\\
 $\Rightarrow n^{\log_5 {4}} = n^{0.861}$
 $\Rightarrow n^{0.861} < n/\log^2{n}$\\
 $\Rightarrow T(n) \in \Theta(n/\log^2{n})$
 
-\item $T(n) = T(n/3) +3*T(n/7)+n$\\
-$\Rightarrow T(n) \in O(n)$
+\item $T(n) = T(n/3) +3T(n/7)+n$\\
+$\Rightarrow T(n) \in \Theta(n)$
 
-\item $T(n) = 6*T(n/6)+n$
+\item $T(n) = 6T(n/6)+n$\\
 $\Rightarrow n^{\log _6 {6}} = n$\\
-$\Rightarrow T(n) \in \Theta(n*\log {n})$
+$\Rightarrow T(n) \in \Theta(n\log {n})$
 
 \item $T(n) = T(n/3) + T(2n/3) + n$\\
-$\Rightarrow T(n) \in \Theta(n*\log{n})$
+$\Rightarrow T(n) \in \Theta(n\log{n})$
 
-\item $T(n) = 16*T(n/4) + n^3*\log^2{n}$
+\item $T(n) = 16T(n/4) + n^3*\log^2{n}$\\
 $\Rightarrow n^{\log _4{16}} = n^2$
-$\Rightarrow n^2 < n^3*\log^2{n}$\\
-$\Rightarrow T(n) \in \Theta(n^3*\log^2{n})$
+$\Rightarrow n^2 < n^3\log^2{n}$\\
+$\Rightarrow T(n) \in \Theta(n^3\log^2{n})$
 
-\item $T(n) = T(\sqrt(n)) + \Theta(\log{\log{n}})$
-$(k=\log{n},f(k)=T(n))$\\
+\item $T(n) = T(\sqrt(n)) + \Theta(\log{\log{n}})$ \tab
+(Θέτω $k=\log{n}, f(k)=T(n))$\\
 $\Rightarrow
-T(\sqrt{n})=f(\log{\sqrt{n}})=f(\frac{1}{2}*\log{n})=f(\frac{k}{2}) $\\
+T(\sqrt{n})=f(\sqrt{k})=f(\log{\sqrt{n}})=f(\frac{1}{2}*\log{n})=f(\frac{k}{2}) $\\
 $\Rightarrow f(k)=f(\frac{k}{2})+\Theta(\log{k})$\\
 $\Rightarrow \Theta(n)$
 
@@ -108,16 +92,31 @@ $\Rightarrow T(n) \in \Theta(n*logn)$
 
 \end{enumerate}
 \end{enumerate}
+%}}}
 
+%{{{Ταξινόμιση σε Πίνακα με Πολλά Ίδια Στοιχεία
 \section{Ταξινόμιση σε Πίνακα με Πολλά Ίδια Στοιχεία}
 
+%}}}
+
+%{{{Δυαδική Αναζήτηση
+\pagebreak
 \section{Δυαδική Αναζήτηση}
 \begin{enumerate}
-\item Ξεκινάμε με ένα στοιχείο. Και συγκρίνουμε με τον $x$. Όσο ο $x$ είναι
-μεγαλύτερος από αυτόν διπλασιάζουμε τον αριθμό των στοιχείων και ελέγχουμε
-πάλι με τον τελευταίο. Μόλις φτάσουμε σε μεγαλύτερο αριθμό από τον $x$ έστω
-στη θέση $k$ και εφαρμόζουμε κλασσική δυαδική αναζήτηση στο τμήμα $A[1...k]$.
-Μέγιστος αριθμός επαναλήψεων είναι $O(\log{k})$.
+\item Ξεκινάμε (για $i=1$) συγκρίνοντας το $A[i]$ με το $x$. Όσο το $x$ είναι
+μεγαλύτερος από αυτό, κρατάμε την τιμή του $(i+1)$ σε μια άλλη μεταβλητή $k$ και
+διπλασιάζουμε το i.
+Μόλις φτάσουμε σε μεγαλύτερο αριθμό από τον $x$, εφαρμόζω ένα έλεγχο.
+Αν το στοιχείο $A[i]$ είναι διάφορο του $\infty$, τότε εφαρμόζω δυαδική αναζήτηση
+για το στοιχείο $x$ στο τμήμα $Α[k..i]$ του πίνακα και έχω το αποτέλεσμα για
+πιθανή ύπαρξη \& θέση του στοιχείου.
+Αν το στοιχείο $A[i]$ είναι ίσο με $\infty$, τότε ελέγχω το $A[k]$. Αν είναι
+διάφορο του $\infty$, εφαρμόζω αναδρομικά τον αλγόριθμο με αρχική θέση $k$.
+Αν και το $A[k]$ είναι $\infty$, σημαίνει ότι το $x$ είναι μεγαλύτερο από το
+τελευταίο (και μέγιστο) στοιχείο του Α, επομένως δεν υπάρχει.
+
+Μέγιστος αριθμός επαναλήψεων είναι $O(\log{n})$.
+
 \item Παίρνω τα k πρώτα στοιχεία από κάθε πίνακα. Τα χωρίζω στη μέση και
 συγκρίνω τα $A[k/2]$ με $B[k/2+1]$ και $A[k/2+1]$ με $B[k/2]$. Αν
 $A[k/2]<B[k/2+1]$ και $B[k/2]<A[k/2+1]$ τοτε το k-οστό στοιχείο είναι το
@@ -125,14 +124,18 @@ $max\{A[k/2],B[k/2]\}$. Αν $A[k/2]<B[k/2+1]$ και $B[k/2]>A[k/2+1]$ τότε
 επαναλαμβάνω χρησιμοποιώντας τα στοιχεία $[A[k/2+1]..A[k]]$ και
 $[B[1]..B[k/2]]$.
 \end{enumerate}
+%}}}
 
+%{{{Συλλογή Comics
 \section{Συλλογή Comics}
 Ζητάμε πρώτα το MSB για όλα τα τεύχη. Έτσι τα χωρίζουμε σε $\frac{n}{2}$ και
 $\frac{n}{2}-1$. Προφανώς αυτό που λείπει είναι στα λιγότερα. Εφαρμόζουμε πάλι
 κάνοντας $\frac{n}{2}$ ερωτήσεις και κρατάμε πάλι το υποσύνολο με το μικρότερο
 πλήθος. Αναδρομικά θα καταλήξουμε στο τεύχος που λείπει από τη συλλογή έχοντας
 ρωτήσει $n+\frac{n}{2}+\frac{n}{4}+..+1=2*n*(1-\frac{1}{2^n}) < 2*n$ φορές.
+%}}}
 
+%{{{Πολυκατοικίες χωρίς Θέα
 \section{Πολυκατοικίες χωρίς Θέα}
 Ξεκινάμε με τον από τον $A[1]$ θέτοντας το $B[1]=0$ εφόσον δεν υπάρχει κάποιος
 δυτικότερα από αυτόν. Προχωράμε στον επόμενο $A[2]$ και συγκρίνουμε το ύψος
@@ -141,5 +144,6 @@ $\frac{n}{2}-1$. Προφανώς αυτό που λείπει είναι στα
 τρέχουμε πάλι για το στόχο του στόχου αναδρομικά μέχρι να φτάσουμε σε 0
 ή σε κάποιον ψηλότερο του $A[2]$ και τον θέτουμε ως στόχο στο πεδίο $B[2]$.
 Επαναλαμβάνουμε μέχρι $n$. Μέγιστος αριθμός συγκρίσεων είναι $2n$.
+%}}}
 
 \end{document}
