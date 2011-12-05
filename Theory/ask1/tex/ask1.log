@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2011.11.14)  4 DEC 2011 12:04
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2011.11.14)  4 DEC 2011 12:48
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -676,40 +676,28 @@ Examine \scriptsize starts \@setfontsize size may be \@viipt.
 Examine \tiny starts \@setfontsize size may be \@vpt. 
 Examine \huge starts \@setfontsize size may be \@xxpt. 
 Examine \Huge starts \@setfontsize size may be \@xxvpt. )
-\g_fontspec_family_Calibri_int=\count190
+\g_fontspec_family_DejaVu Serif_int=\count190
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'Calibri(0)' created for font 'Calibri' with options
+. Font family 'DejaVuSerif(0)' created for font 'DejaVu Serif' with options
 . [Mapping=TeX-text].
 . 
 . This font family consists of the following shapes:
 . 
 . * 'normal' with NFSS spec.:
-. <->"Calibri/ICU:script=latn;language=DFLT;mapping=TeX-text;"
-. 
-. * 'small caps' with NFSS spec.:
-. <->"Calibri/ICU:script=latn;language=DFLT;mapping=TeX-text;+smcp;"
+. <->"DejaVu Serif/ICU:script=latn;language=DFLT;mapping=TeX-text;"
 . 
 . * 'bold' with NFSS spec.:
-. <->"Calibri/B/ICU:script=latn;language=DFLT;mapping=TeX-text;"
-. 
-. * 'bold small caps' with NFSS spec.:
-. <->"Calibri/B/ICU:script=latn;language=DFLT;mapping=TeX-text;+smcp;"
+. <->"DejaVu Serif/B/ICU:script=latn;language=DFLT;mapping=TeX-text;"
 . 
 . * 'italic' with NFSS spec.:
-. <->"Calibri/I/ICU:script=latn;language=DFLT;mapping=TeX-text;"
-. 
-. * 'italic small caps' with NFSS spec.:
-. <->"Calibri/I/ICU:script=latn;language=DFLT;mapping=TeX-text;+smcp;"
+. <->"DejaVu Serif/I/ICU:script=latn;language=DFLT;mapping=TeX-text;"
 . 
 . * 'bold italic' with NFSS spec.:
-. <->"Calibri/BI/ICU:script=latn;language=DFLT;mapping=TeX-text;"
-. 
-. * 'bold italic small caps' with NFSS spec.:
-. <->"Calibri/BI/ICU:script=latn;language=DFLT;mapping=TeX-text;+smcp;"
+. <->"DejaVu Serif/BI/ICU:script=latn;language=DFLT;mapping=TeX-text;"
 .................................................
-Font mapping `TeX-text.tec' for font `Calibri' not found.
+Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
  (./ask1.aux
 (./title/title.aux))
 \openout1 = `ask1.aux'.
@@ -770,34 +758,38 @@ LaTeX Font Info:    Redeclaring symbol font `operators' on input line 22.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
 (Font)              `operators' in the math version `normal' on input line 22.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> EU1/Calibri(0)/m/n on input line 22.
+(Font)                  OT1/cmr/m/n --> EU1/DejaVuSerif(0)/m/n on input line 22
+.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
 (Font)              `operators' in the math version `bold' on input line 22.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> EU1/Calibri(0)/m/n on input line 22.
+(Font)                  OT1/cmr/bx/n --> EU1/DejaVuSerif(0)/m/n on input line 2
+2.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  EU1/Calibri(0)/m/n --> EU1/Calibri(0)/m/n on input line
- 22.
+(Font)                  EU1/DejaVuSerif(0)/m/n --> EU1/DejaVuSerif(0)/m/n on in
+put line 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  EU1/Calibri(0)/m/n --> EU1/Calibri(0)/m/n on input line
- 22.
+(Font)                  EU1/DejaVuSerif(0)/m/n --> EU1/DejaVuSerif(0)/m/n on in
+put line 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> EU1/Calibri(0)/m/it on input line 22.
+(Font)                  OT1/cmr/m/it --> EU1/DejaVuSerif(0)/m/it on input line 
+22.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> EU1/Calibri(0)/bx/n on input line 22.
+(Font)                  OT1/cmr/bx/n --> EU1/DejaVuSerif(0)/bx/n on input line 
+22.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
 (Font)                  OT1/cmss/m/n --> EU1/lmss/m/n on input line 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
 (Font)                  OT1/cmtt/m/n --> EU1/lmtt/m/n on input line 22.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  EU1/Calibri(0)/m/n --> EU1/Calibri(0)/bx/n on input lin
-e 22.
+(Font)                  EU1/DejaVuSerif(0)/m/n --> EU1/DejaVuSerif(0)/bx/n on i
+nput line 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  EU1/Calibri(0)/m/n --> EU1/Calibri(0)/bx/n on input lin
-e 22.
+(Font)                  EU1/DejaVuSerif(0)/m/n --> EU1/DejaVuSerif(0)/bx/n on i
+nput line 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> EU1/Calibri(0)/bx/it on input line 22
-.
+(Font)                  OT1/cmr/bx/it --> EU1/DejaVuSerif(0)/bx/it on input lin
+e 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> EU1/lmss/bx/n on input line 22.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
@@ -810,41 +802,14 @@ runsystem(pygmentize -S default -f latex > ask1.pyg)...executed.
 
 
 (./title/title.tex
-Font mapping `TeX-text.tec' for font `Calibri' not found.
-Font mapping `TeX-text.tec' for font `Calibri Italic' not found.
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'Calibri(1)' created for font 'Calibri' with options
-. [Mapping=TeX-text,VerticalPosition=Superior].
-. 
-. This font family consists of the following shapes:
-. 
-. * 'normal' with NFSS spec.:
-. <->"Calibri/ICU:script=latn;language=DFLT;mapping=TeX-text;+sups;"
-. 
-. * 'small caps' with NFSS spec.:
-. <->"Calibri/ICU:script=latn;language=DFLT;mapping=TeX-text;+sups;+smcp;"
-. 
-. * 'bold' with NFSS spec.:
-. <->"Calibri/B/ICU:script=latn;language=DFLT;mapping=TeX-text;+sups;"
-. 
-. * 'bold small caps' with NFSS spec.:
-. <->"Calibri/B/ICU:script=latn;language=DFLT;mapping=TeX-text;+sups;+smcp;"
-. 
-. * 'italic' with NFSS spec.:
-. <->"Calibri/I/ICU:script=latn;language=DFLT;mapping=TeX-text;+sups;"
-. 
-. * 'italic small caps' with NFSS spec.:
-. <->"Calibri/I/ICU:script=latn;language=DFLT;mapping=TeX-text;+sups;+smcp;"
-. 
-. * 'bold italic' with NFSS spec.:
-. <->"Calibri/BI/ICU:script=latn;language=DFLT;mapping=TeX-text;+sups;"
-. 
-. * 'bold italic small caps' with NFSS spec.:
-. <->"Calibri/BI/ICU:script=latn;language=DFLT;mapping=TeX-text;+sups;+smcp;"
-.................................................
-Font mapping `TeX-text.tec' for font `Calibri Italic' not found.
+Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
+Font mapping `TeX-text.tec' for font `DejaVu Serif Italic' not found.
+Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 10.
+Font mapping `TeX-text.tec' for font `DejaVu Serif Italic' not found.
 
 Underfull \hbox (badness 10000) in paragraph at lines 10--12
 
@@ -852,40 +817,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--12
 
 File: title/ntua_logo.eps Graphic file (type eps)
 <title/ntua_logo.eps>
-Font mapping `TeX-text.tec' for font `Calibri' not found.
-Font mapping `TeX-text.tec' for font `Calibri' not found.
-Font mapping `TeX-text.tec' for font `Calibri' not found.
+Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
+Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
+Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <24.88> on input line 20.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <20.74> on input line 20.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <17.28> on input line 20.
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'Calibri(1)' created for font 'Calibri' with options
-. [Mapping=TeX-text,VerticalPosition=Superior].
-. 
-. This font family consists of the following shapes:
-.................................................
-Font mapping `TeX-text.tec' for font `Calibri' not found.
-Font mapping `TeX-text.tec' for font `Calibri' not found.
+Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
  [1
 
 
 ])
-Font mapping `TeX-text.tec' for font `Calibri Bold' not found.
+Font mapping `TeX-text.tec' for font `DejaVu Serif Bold' not found.
 LaTeX Info: Redefining \anw@print on input line 32.
 
 Underfull \hbox (badness 10000) in paragraph at lines 32--34
 
  []
 
-Font mapping `TeX-text.tec' for font `Calibri' not found.
-Font mapping `TeX-text.tec' for font `Calibri' not found.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 34.
+Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 34.
 LaTeX Info: Redefining \anw@print on input line 72.
@@ -896,12 +849,12 @@ LaTeX Info: Redefining \anw@print on input line 116.
 LaTeX Info: Redefining \anw@print on input line 121.
  [2] (./ask1.aux (./title/title.aux)) ) 
 Here is how much of TeX's memory you used:
- 16311 strings out of 494146
- 337824 string characters out of 3152894
- 348184 words of memory out of 3000000
- 19353 multiletter control sequences out of 15000+200000
- 6630 words of font info for 54 fonts, out of 3000000 for 9000
+ 16268 strings out of 494146
+ 336377 string characters out of 3152894
+ 347447 words of memory out of 3000000
+ 19318 multiletter control sequences out of 15000+200000
+ 7479 words of font info for 49 fonts, out of 3000000 for 9000
  1018 hyphenation exceptions out of 8191
- 50i,10n,43p,616b,374s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 50i,10n,37p,616b,343s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on ask1.pdf (3 pages).
