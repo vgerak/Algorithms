@@ -1,5 +1,5 @@
-CC = g++
-CFLAGS = -Wall -Wextra -Wuninitialized -g
+CC = gcc
+CFLAGS = -Wall -Wextra -O2
 
 all:		vacation
 vacation:	vacation.o

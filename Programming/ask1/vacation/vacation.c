@@ -1,84 +1,93 @@
 /* -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
-* File Name : vacation.c
+ * File Name : vacation.c
 
-* Purpose : 1st exercise on Algorithms
+ * Purpose : 1st exercise on Algorithms
 
-* Creation Date : 28-11-2011
+ * Creation Date : 28-11-2011
 
-* Last Modified : Sun Dec  4 10:51:56 2011
+ * Last Modified : Tue Dec  6 17:52:24 2011
 
-* Created By : Vasilis Gerakaris <vgerak@gmail.com>
+ * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
-_._._._._._._._._._._._._._._._._._._._._.*/
+ _._._._._._._._._._._._._._._._._._._._._.*/
 #include "vacation.h"
 
+struct lst{
+    int val;
+    int steps;
+    struct lst *next;
+};
 
-unsigned int n;
-int ltemp;
-int dayT[500000];
+typedef struct lst list;
 
 int main()
 {
-    unsigned int i, pivotL, pivotR, tempresult, days;
-    double avg;
+    int i,n, avg, merge,sum;
+    list *root;
+    list *ptr;
+    list *tmp;
 
-    scanf("%d %d", &n, &ltemp);
-    for (i=0; i<n; i++)
+    scanf("%d %d",&n, &avg);
+    printf("%d Days to calculate \n", n);
+    root = malloc(sizeof(list));
+    root-> next = 0;
+    root-> steps = 1;
+    scanf("%d", &root->val);
+    ptr = root;
+    //printf("Temperature of day 0 is %d \n",ptr->val);
+
+
+    for (i=1; i<n; i++)
     {
-        //dayT[i] = rand();
-        scanf("%d", &dayT[i]);
-        printf("Temperature of day %d is %d \n",i,dayT[i]);
-    }
-    pivotL = pivotR = days = 0;     //initialization
-    for (i=0; i<n-1; i++)
-    {
-        if (dayT[i] > ltemp)
+        ptr->next = malloc(sizeof(list));
+        ptr = ptr-> next;
+        if (ptr == 0)
         {
-            if (days == 0 )
+            printf( "Out of memory" );
+            return -1;
+        }
+        ptr-> next = 0;
+        ptr-> steps = 1;
+        scanf("%d", &ptr-> val);
+        ptr-> val -= avg;
+        //printf("Temperature of day %d is %d \n",i,ptr->val);
+    }
+
+    merge = 1;
+    while (merge = 1)
+    {
+        ptr = root;
+        merge = 0;
+        while (ptr-> next != 0)
+        {
+            if (ptr-> val <= 0)
             {
-                days = 1;
+                ptr = ptr-> next;
             }
-            pivotL = pivotR = i;
-            tempresult = dayfinder(pivotL, pivotR, avg, days);
-            if (tempresult > days)
+            else
             {
-                days = tempresult;
+                sum = 0;
+                tmp = ptr;
+                ptr = ptr-> next;
+                while (ptr->val <=0)
+                {
+                    sum = sum + ptr-> val;
+                    ptr = ptr-> next;
+                }
+                if ((tmp-> val >= sum) && (ptr-> val >= sum))
+                {
+                    //MERGE
+                    merge = 1;
+                    tmp-> val = tmp-> val + ptr-> val + sum;
+                    //remember to free
+                    tmp-> next = ptr-> next;
+                    ptr = tmp;
+                }
             }
         }
     }
-return 0;
-}
 
 
-unsigned int dayfinder(unsigned int pivotL, unsigned int pivotR, double avg, unsigned int days)
-{
-    unsigned int maxstepL, maxstepR, tdays;
-    double avgtemp;
-
-
-    maxstepL = maxstepR = 0;    //initialization
-    tdays = days;
-    avgtemp = avg;
-
-    if (maxstepL == 0)
-    {
-        return maxstepR;
-    }
-    else if (maxstepR == 0)
-    {
-        return maxstepL;
-    }
-    else
-    {
-        days++ ;
-        if (maxstepR > maxstepL)
-        {
-            return 1 + dayfinder(pivotL, pivotR + 1, avg, days);
-        }
-        else
-        {
-            return 1 + dayfinder(pivotL - 1, pivotR, avg, days);
-        }
-    }
+    return 0;
 }
