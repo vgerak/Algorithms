@@ -6,7 +6,7 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Tue Dec  6 17:52:24 2011
+ * Last Modified : Tue Dec  6 19:37:51 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -23,7 +23,7 @@ typedef struct lst list;
 
 int main()
 {
-    int i,n, avg, merge,sum;
+    int i,n, avg, merge,sum, max;
     list *root;
     list *ptr;
     list *tmp;
@@ -33,11 +33,12 @@ int main()
     root = malloc(sizeof(list));
     root-> next = 0;
     root-> steps = 1;
-    scanf("%d", &root->val);
+    scanf("%d", &root-> val);
+    root-> val -= avg;
     ptr = root;
     //printf("Temperature of day 0 is %d \n",ptr->val);
 
-
+    //Read from stdin, initialize list
     for (i=1; i<n; i++)
     {
         ptr->next = malloc(sizeof(list));
@@ -50,10 +51,13 @@ int main()
         ptr-> next = 0;
         ptr-> steps = 1;
         scanf("%d", &ptr-> val);
+        //Subtract avg from every element to work around 0
         ptr-> val -= avg;
         //printf("Temperature of day %d is %d \n",i,ptr->val);
     }
 
+    //Step 1: Merge positive elements with small accumulated value of negatives between them
+    //in order to decrease the search candidates for Step 2 and the size of the list
     merge = 1;
     while (merge = 1)
     {
@@ -77,7 +81,7 @@ int main()
                 }
                 if ((tmp-> val >= sum) && (ptr-> val >= sum))
                 {
-                    //MERGE
+                    //Merge
                     merge = 1;
                     tmp-> val = tmp-> val + ptr-> val + sum;
                     //remember to free
@@ -88,6 +92,23 @@ int main()
         }
     }
 
+    //Step 2: Search around the remaining positives to find maximum number of days
+    ptr = root;
+    max = 0;
+    while (ptr-> next != 0)
+    {
+        if (ptr-> val >= 0)
+        {
+            //search
+        }
+        if (ptr-> val > max)
+        {
+            max = ptr-> val;
+        }
+        ptr = ptr-> next;
+    }
 
+
+    printf("%d" , max);
     return 0;
 }
