@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2011.11.14)  8 DEC 2011 16:51
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2011.11.14)  8 DEC 2011 17:03
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -869,19 +869,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--91
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 118--120
+Underfull \hbox (badness 10000) in paragraph at lines 119--121
 
  []
 
 Missing character: There is no Α in font cmmi10!
 Font mapping `TeX-text.tec' for font `DejaVu Serif Bold' not found.
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--165
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
 
  []
 
 
-Overfull \hbox (25.93399pt too wide) in paragraph at lines 170--172
+Overfull \hbox (25.93399pt too wide) in paragraph at lines 155--157
 []\EU1/DejaVuSerif(0)/m/n/10 Αν $\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 [\OML/cmm/
 m/it/10 k\OT1/cmr/m/n/10 /2] \OML/cmm/m/it/10 < B\OT1/cmr/m/n/10 [\OML/cmm/m/it
 /10 k\OT1/cmr/m/n/10 /2 + 1]$ \EU1/DejaVuSerif(0)/m/n/10 και $\OML/cmm/m/it/
