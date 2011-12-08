@@ -6,7 +6,7 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Tue Dec  6 19:37:51 2011
+ * Last Modified : Thu Dec  8 05:39:15 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -23,7 +23,7 @@ typedef struct lst list;
 
 int main()
 {
-    int i,n, avg, merge,sum, max;
+    int i,n, avg, merge,sumL,sumR max;
     list *root;
     list *ptr;
     list *tmp;
@@ -71,19 +71,19 @@ int main()
             }
             else
             {
-                sum = 0;
+                sumL = 0;
                 tmp = ptr;
                 ptr = ptr-> next;
                 while (ptr->val <=0)
                 {
-                    sum = sum + ptr-> val;
+                    sumL = sumL + ptr-> val;
                     ptr = ptr-> next;
                 }
-                if ((tmp-> val >= sum) && (ptr-> val >= sum))
+                if ((tmp-> val >= sumL) && (ptr-> val >= sumL))
                 {
                     //Merge
                     merge = 1;
-                    tmp-> val = tmp-> val + ptr-> val + sum;
+                    tmp-> val = tmp-> val + ptr-> val + sumL;
                     //remember to free
                     tmp-> next = ptr-> next;
                     ptr = tmp;
