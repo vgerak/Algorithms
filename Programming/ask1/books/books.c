@@ -6,12 +6,13 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Sun Dec 11 21:06:03 2011
+ * Last Modified : Sun Dec 11 21:14:20 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
  _._._._._._._._._._._._._._._._._._._._._.*/
-#include "books.h"
+//#include "books.h"
+#include <stdio.h>
 
 int A[100000];
 int scribes, books;
