@@ -6,7 +6,7 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Sun Dec 11 21:03:46 2011
+ * Last Modified : Sun Dec 11 21:06:03 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -28,7 +28,6 @@ int main()
     for (i=0; i<books; i++)
     {
         scanf("%d", &A[i]);
-//        printf("Book # %d has %d pages\n",i,A[i]);
         sum = sum + A[i];
         if (A[i] > min2)
         {
@@ -48,7 +47,6 @@ int main()
     }
 
     //Perform binary search on possible number of pages
-//    printf("max is %d, min is %d\n", sum, min1);
     if (books < scribes)
     {
         printf("%d", min2);
@@ -71,8 +69,8 @@ int binsearch(int min,int max)
     if (max != min)
     {
         avg= ((max + min)/2);
-//        printf("max is %d, min is %d\n", max, min);
-//        printf("Searching for %d solution\n", avg);
+        //printf("max is %d, min is %d\n", max, min);
+        //printf("Searching for %d solution\n", avg);
         count = 1;
         sum = 0;
         result = 0;
@@ -90,7 +88,7 @@ int binsearch(int min,int max)
                 count ++;
             }
         }
-//        printf("count =  %d, result = %d\n", count, result);
+        //printf("count =  %d, result = %d\n", count, result);
 
         //if (count > scribes), # of pages is
         //between avg and max
