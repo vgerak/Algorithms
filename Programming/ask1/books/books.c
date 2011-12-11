@@ -6,7 +6,7 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Sun Dec 11 21:14:20 2011
+ * Last Modified : Sun Dec 11 21:19:52 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -50,12 +50,12 @@ int main()
     //Perform binary search on possible number of pages
     if (books < scribes)
     {
-        printf("%d", min2);
+        printf("%d\n", min2);
         return 1;
     }
     result = binsearch(min1,sum);
 
-    printf("%d \n",result);
+    printf("%d\n",result);
 
     return 0;
 }
