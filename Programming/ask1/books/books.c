@@ -6,7 +6,7 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Mon Dec 12 15:23:47 2011
+ * Last Modified : Mon Dec 12 15:27:06 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -28,6 +28,11 @@ int main()
 
     scanf("%d %d", &books, &scribes);
     A = calloc(books,sizeof(int));
+    if (A == NULL)
+    {
+        printf("Not enough memory...\n");
+        return -1;
+    }
     sum = 0;
     min2 = 0;
     for (i=0; i<books; i++)

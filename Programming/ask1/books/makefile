@@ -5,7 +5,7 @@ all:		books
 
 books:		books.o
 		${CC} books.o -o books ${LDFLAGS}
-books.o:	books.c books.h
+books.o:	books.c
 		${CC} -c books.c -o books.o ${CFLAGS}
 
 .PHONY:	clean
