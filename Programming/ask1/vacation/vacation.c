@@ -6,109 +6,110 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Thu Dec  8 05:39:15 2011
+ * Last Modified : Mon Dec 12 15:13:41 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
  _._._._._._._._._._._._._._._._._._._._._.*/
-#include "vacation.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-struct lst{
-    int val;
-    int steps;
-    struct lst *next;
-};
+int n;
+int *T;
+int *left;
+int *right;
 
-typedef struct lst list;
 
 int main()
 {
-    int i,n, avg, merge,sumL,sumR max;
-    list *root;
-    list *ptr;
-    list *tmp;
+    int i, j, k, piv, cleft, cright, result;
+    int ltemp;
 
-    scanf("%d %d",&n, &avg);
-    printf("%d Days to calculate \n", n);
-    root = malloc(sizeof(list));
-    root-> next = 0;
-    root-> steps = 1;
-    scanf("%d", &root-> val);
-    root-> val -= avg;
-    ptr = root;
-    //printf("Temperature of day 0 is %d \n",ptr->val);
+    scanf("%d %d", &n, &ltemp);
 
-    //Read from stdin, initialize list
+    T = calloc(n,sizeof(int));
+
+
+    scanf("%d", &T[0]);
+    T[0] -= ltemp;
+    piv = T[0];
+
+    left = calloc(n*2,sizeof(int));
+    right = calloc(n*2,sizeof(int));
+    if ((left == NULL) || (right == NULL))
+    {
+        printf( "Out of memory" );
+        return -1;
+    }
+
+    cleft = 1;
+    left[0] = T[0];
+    left[1] = 0;
+    k = 1;
     for (i=1; i<n; i++)
     {
-        ptr->next = malloc(sizeof(list));
-        ptr = ptr-> next;
-        if (ptr == 0)
+        scanf("%d", &T[i]);
+        T[i] -= ltemp;
+        T[i] = T[i] + T[i-1];  //Create prefix sums
+
+        //Create LEFT list while reading
+        //from input, to save a scan
+        if (T[i] < piv)
         {
-            printf( "Out of memory" );
-            return -1;
+            cleft++;
+            piv = T[i];
+            left[2*k] = T[i];
+            left[2*k +1] = i;
+            k++;
         }
-        ptr-> next = 0;
-        ptr-> steps = 1;
-        scanf("%d", &ptr-> val);
-        //Subtract avg from every element to work around 0
-        ptr-> val -= avg;
-        //printf("Temperature of day %d is %d \n",i,ptr->val);
     }
 
-    //Step 1: Merge positive elements with small accumulated value of negatives between them
-    //in order to decrease the search candidates for Step 2 and the size of the list
-    merge = 1;
-    while (merge = 1)
+    //Create RIGHT list
+    cright = 1;
+    piv = T[n-1];
+    right[0] = T[n-1];
+    right[1] = n-1;
+    k = 1;
+    for (i=(n-2); i>= 0; i--)
     {
-        ptr = root;
-        merge = 0;
-        while (ptr-> next != 0)
+        if (T[i] > piv)
         {
-            if (ptr-> val <= 0)
-            {
-                ptr = ptr-> next;
-            }
-            else
-            {
-                sumL = 0;
-                tmp = ptr;
-                ptr = ptr-> next;
-                while (ptr->val <=0)
-                {
-                    sumL = sumL + ptr-> val;
-                    ptr = ptr-> next;
-                }
-                if ((tmp-> val >= sumL) && (ptr-> val >= sumL))
-                {
-                    //Merge
-                    merge = 1;
-                    tmp-> val = tmp-> val + ptr-> val + sumL;
-                    //remember to free
-                    tmp-> next = ptr-> next;
-                    ptr = tmp;
-                }
-            }
+            cright++;
+            piv = T[i];
+            right[2*k] = T[i];
+            right[2*k +1] = i;
+            k++;
         }
     }
 
-    //Step 2: Search around the remaining positives to find maximum number of days
-    ptr = root;
-    max = 0;
-    while (ptr-> next != 0)
+    /*
+    //testing list status
+    for(i=0; i<cleft; i++)
     {
-        if (ptr-> val >= 0)
+        printf("index %d has sum of %d \n", left[2*i+1], left[2*i]);
+    }
+    printf("\n");
+    //testing list status
+    for(i=0; i<cright; i++)
+    {
+        printf("index %d has sum of %d \n", right[2*i+1], right[2*i]);
+    }
+    */
+    result = 0;
+    for (i=0; i<cleft; i++)
+    {
+        for (j=(cright-1); j>=0; j--)
         {
-            //search
+            if (right[2*j] - left[2*i] > 0)
+            {
+                if (right[2*j+1] - left[2*i+1] > result)
+                {
+
+                }
+            }
         }
-        if (ptr-> val > max)
-        {
-            max = ptr-> val;
-        }
-        ptr = ptr-> next;
     }
 
 
-    printf("%d" , max);
     return 0;
 }

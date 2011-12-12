@@ -6,16 +6,19 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Sun Dec 11 21:19:52 2011
+ * Last Modified : Mon Dec 12 15:23:47 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
  _._._._._._._._._._._._._._._._._._._._._.*/
 //#include "books.h"
 #include <stdio.h>
+#include <stdlib.h>
 
-int A[100000];
+//int A[100000];
 int scribes, books;
+int *A;
+int binsearch(int,int);
 
 int main()
 {
@@ -24,6 +27,7 @@ int main()
 
 
     scanf("%d %d", &books, &scribes);
+    A = calloc(books,sizeof(int));
     sum = 0;
     min2 = 0;
     for (i=0; i<books; i++)
