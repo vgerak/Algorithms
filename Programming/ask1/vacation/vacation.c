@@ -6,7 +6,7 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Tue Dec 13 22:35:02 2011
+ * Last Modified : Wed Dec 14 00:09:15 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -96,9 +96,16 @@ int main()
     j = (cleft-1);
     for (i=0; i<cright; i++)
     {
+        if (T[right[i]]>=0)
+        {
+            if (right[i]>=result)
+            {
+                result = right[i] + 1;
+            }
+        }
         while (j>=0)
         {
-            if (T[right[i]] - T[left[j]] > 0)
+            if (T[right[i]] - T[left[j]] >= 0)
             {
                 if ((right[i] - left[j]) > result)
                 {
