@@ -6,7 +6,7 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Mon Dec 12 15:13:41 2011
+ * Last Modified : Tue Dec 13 22:35:02 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -22,7 +22,7 @@ int *right;
 
 int main()
 {
-    int i, j, k, piv, cleft, cright, result;
+    int i, j, piv, cleft, cright, result;
     int ltemp;
 
     scanf("%d %d", &n, &ltemp);
@@ -34,8 +34,8 @@ int main()
     T[0] -= ltemp;
     piv = T[0];
 
-    left = calloc(n*2,sizeof(int));
-    right = calloc(n*2,sizeof(int));
+    left = calloc(n,sizeof(int));
+    right = calloc(n,sizeof(int));
     if ((left == NULL) || (right == NULL))
     {
         printf( "Out of memory" );
@@ -43,9 +43,8 @@ int main()
     }
 
     cleft = 1;
-    left[0] = T[0];
-    left[1] = 0;
-    k = 1;
+    left[0] = 0;
+    j = 1;
     for (i=1; i<n; i++)
     {
         scanf("%d", &T[i]);
@@ -58,58 +57,62 @@ int main()
         {
             cleft++;
             piv = T[i];
-            left[2*k] = T[i];
-            left[2*k +1] = i;
-            k++;
+            left[j] = i;
+            j++;
         }
     }
 
     //Create RIGHT list
     cright = 1;
     piv = T[n-1];
-    right[0] = T[n-1];
-    right[1] = n-1;
-    k = 1;
+    right[0] = n-1;
+    j = 1;
     for (i=(n-2); i>= 0; i--)
     {
         if (T[i] > piv)
         {
             cright++;
             piv = T[i];
-            right[2*k] = T[i];
-            right[2*k +1] = i;
-            k++;
+            right[j] = i;
+            j++;
         }
     }
 
     /*
     //testing list status
-    for(i=0; i<cleft; i++)
+    for(j=0; j<cleft; j++)
     {
-        printf("index %d has sum of %d \n", left[2*i+1], left[2*i]);
+        printf("index %d has sum of %d \n", left[j], T[left[j]]);
     }
     printf("\n");
     //testing list status
     for(i=0; i<cright; i++)
     {
-        printf("index %d has sum of %d \n", right[2*i+1], right[2*i]);
+        printf("index %d has sum of %d \n", right[i], T[right[i]]);
     }
     */
-    result = 0;
-    for (i=0; i<cleft; i++)
-    {
-        for (j=(cright-1); j>=0; j--)
-        {
-            if (right[2*j] - left[2*i] > 0)
-            {
-                if (right[2*j+1] - left[2*i+1] > result)
-                {
 
+    result = 0;
+    j = (cleft-1);
+    for (i=0; i<cright; i++)
+    {
+        while (j>=0)
+        {
+            if (T[right[i]] - T[left[j]] > 0)
+            {
+                if ((right[i] - left[j]) > result)
+                {
+                    result = right[i] - left[j];
                 }
             }
+            else
+            {
+                break;
+            }
+            j--;
         }
     }
 
-
+    printf("%d\n",result);
     return 0;
 }
