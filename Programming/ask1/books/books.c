@@ -6,7 +6,7 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Mon Dec 12 15:27:06 2011
+ * Last Modified : Wed Dec 14 14:11:50 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -15,7 +15,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//int A[100000];
 int scribes, books;
 int *A;
 int binsearch(int,int);
