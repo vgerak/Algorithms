@@ -6,7 +6,7 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Thu Dec 15 09:25:27 2011
+ * Last Modified : Thu Dec 15 12:11:28 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -14,10 +14,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-unsigned int n;
-long int *T;
-long int *left;
-long int *right;
+int n;
+long long int *T;
+long long int *left;
+long long int *right;
 
 
 int main()
@@ -30,7 +30,7 @@ int main()
     T = calloc(n,sizeof(long int));
 
 
-    scanf("%ld", &T[0]);
+    scanf("%lld", &T[0]);
     T[0] -= ltemp;
     piv = T[0];
 
@@ -47,7 +47,7 @@ int main()
     j = 1;
     for (i=1; i<n; i++)
     {
-        scanf("%ld", &T[i]);
+        scanf("%lld", &T[i]);
         T[i] -= ltemp;
         T[i] = T[i] + T[i-1];  //Create prefix sums
 
