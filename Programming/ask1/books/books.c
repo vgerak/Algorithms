@@ -6,7 +6,7 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Thu Dec 15 09:18:47 2011
+ * Last Modified : Thu Dec 15 16:33:00 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -17,12 +17,13 @@
 
 int scribes, books;
 int *A;
-int binsearch(int,int);
+int binsearch(long long int, long long int);
 
 int main()
 {
     int i;
-    int sum,min1,min2,result;
+    int min2;
+    long long int sum, result, min1;
 
 
     scanf("%d %d", &books, &scribes);
@@ -63,15 +64,16 @@ int main()
     }
     result = binsearch(min1,sum);
 
-    printf("%d\n",result);
+    printf("%lld\n",result);
 
     return 0;
 }
 
 
-int binsearch(int min,int max)
+int binsearch(long long int min, long long int max)
 {
-    int result, sum, avg, count, i;
+    long long int result, sum, avg;
+    int count, i;
 
     result = max;
 
