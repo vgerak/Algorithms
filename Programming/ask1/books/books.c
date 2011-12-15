@@ -6,7 +6,7 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Wed Dec 14 14:11:50 2011
+ * Last Modified : Thu Dec 15 09:18:47 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -88,10 +88,6 @@ int binsearch(int min,int max)
             sum = sum + A[i];
             if (sum > avg)
             {
-                if ((sum-A[i]) > result)
-                {
-                    result = (sum- A[i]);
-                }
                 sum = 0;
                 i --;
                 count ++;
@@ -107,12 +103,10 @@ int binsearch(int min,int max)
         }
         //if (count < scribes), # of pages is
         //between min and avg
-        else //if (count < scribes)
+        else    //if (count <= scribes)
         {
             result = binsearch(min, avg);
         }
-        //if count = scribes, result is the biggest
-        //sum of pages for a single scribe
     }
 
 

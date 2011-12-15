@@ -3,13 +3,11 @@ CFLAGS = -Wall -Wextra -O3
 
 all:		vacation
 vacation:	vacation.o
-	${CC} vacation.o -o vacation ${LDFLAGS}
-vacation.o:	vacation.c vacation.h
-	${CC} -c vacation.c -o vacation.o ${CFLAGS}
+	${CC} vacation.c -o vacation ${LDFLAGS}
 
 .PHONY:	clean
 clean:
-	rm vacation.o vacation
+	rm vacation
 test:
 	./vacation < testcases/input${TEST}.txt
 	cat testcases/output${TEST}.txt
