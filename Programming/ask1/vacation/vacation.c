@@ -6,7 +6,7 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Thu Dec 15 12:11:28 2011
+ * Last Modified : Thu Dec 15 17:06:23 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -27,15 +27,15 @@ int main()
 
     scanf("%d %d", &n, &ltemp);
 
-    T = calloc(n,sizeof(long int));
+    T = calloc(n,sizeof(long long int));
 
 
     scanf("%lld", &T[0]);
     T[0] -= ltemp;
     piv = T[0];
 
-    left = calloc(n,sizeof(long int));
-    right = calloc(n,sizeof(long int));
+    left = calloc(n,sizeof(long long int));
+    right = calloc(n,sizeof(long long int));
     if ((left == NULL) || (right == NULL))
     {
         printf( "Out of memory" );
