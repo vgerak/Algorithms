@@ -6,11 +6,12 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Thu Dec 15 17:06:23 2011
+ * Last Modified : Tue Dec 20 15:14:08 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
  _._._._._._._._._._._._._._._._._._._._._.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -19,16 +20,13 @@ long long int *T;
 long long int *left;
 long long int *right;
 
-
 int main()
 {
     int i, j, piv, cleft, cright, result;
     int ltemp;
 
     scanf("%d %d", &n, &ltemp);
-
     T = calloc(n,sizeof(long long int));
-
 
     scanf("%lld", &T[0]);
     T[0] -= ltemp;
@@ -41,7 +39,6 @@ int main()
         printf( "Out of memory" );
         return -1;
     }
-
     cleft = 1;
     left[0] = 0;                //Important! to have correct results
     j = 1;
@@ -50,9 +47,8 @@ int main()
         scanf("%lld", &T[i]);
         T[i] -= ltemp;
         T[i] = T[i] + T[i-1];  //Create prefix sums
-
         //Create LEFT list while reading
-        //from input, to save a scan
+        //from input, to save a pass
         if (T[i] < piv)
         {
             cleft++;
@@ -61,7 +57,6 @@ int main()
             j++;
         }
     }
-
     //Create RIGHT list
     cright = 1;
     piv = T[n-1];
@@ -77,19 +72,6 @@ int main()
             j++;
         }
     }
-
-    /*
-    //testing list status
-    for(j=0; j<cleft; j++)
-    {
-        printf("index %d has sum of %d \n", left[j], T[left[j]]);
-    }
-    printf("\n");
-    for(i=0; i<cright; i++)
-    {
-        printf("index %d has sum of %d \n", right[i], T[right[i]]);
-    }
-    */
 
     result = 0;
     j = (cleft-1);

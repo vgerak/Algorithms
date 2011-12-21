@@ -6,12 +6,12 @@
 
  * Creation Date : 28-11-2011
 
- * Last Modified : Thu Dec 15 16:33:00 2011
+ * Last Modified : Tue Dec 20 14:31:46 2011
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
  _._._._._._._._._._._._._._._._._._._._._.*/
-//#include "books.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -24,7 +24,6 @@ int main()
     int i;
     int min2;
     long long int sum, result, min1;
-
 
     scanf("%d %d", &books, &scribes);
     A = calloc(books,sizeof(int));
@@ -47,7 +46,6 @@ int main()
     min1 = sum / books;
 
     //Upper bound is sum of pages
-    //
     //Lower bound is the largest of:
     // -- the sum of pages divided by # of scribes
     // -- the most pages found in a single book
@@ -55,7 +53,6 @@ int main()
     {
         min1 = min2;
     }
-
     //Perform binary search on possible number of pages
     if (books < scribes)
     {
@@ -63,12 +60,9 @@ int main()
         return 1;
     }
     result = binsearch(min1,sum);
-
     printf("%lld\n",result);
-
     return 0;
 }
-
 
 int binsearch(long long int min, long long int max)
 {
@@ -80,8 +74,6 @@ int binsearch(long long int min, long long int max)
     if (max != min)
     {
         avg= ((max + min)/2);
-        //printf("max is %d, min is %d\n", max, min);
-        //printf("Searching for %d solution\n", avg);
         count = 1;
         sum = 0;
         result = 0;
@@ -95,8 +87,6 @@ int binsearch(long long int min, long long int max)
                 count ++;
             }
         }
-        //printf("count =  %d, result = %d\n", count, result);
-
         //if (count > scribes), # of pages is
         //between avg and max
         if (count > scribes)
@@ -110,7 +100,6 @@ int binsearch(long long int min, long long int max)
             result = binsearch(min, avg);
         }
     }
-
 
     return result;
 }
