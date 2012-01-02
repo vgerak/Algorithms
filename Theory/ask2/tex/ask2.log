@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2011.11.14)  2 JAN 2012 18:25
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2011.11.14)  2 JAN 2012 19:57
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -863,13 +863,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 35.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 35.
-Font mapping `TeX-text.tec' for font `DejaVu Serif Italic' not found.
 Font mapping `TeX-text.tec' for font `DejaVu Serif Bold' not found.
 Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
 
 
 LaTeX Font Warning: Font shape `EU1/DejaVuSerif(0)/m/sc' undefined
-(Font)              using `EU1/DejaVuSerif(0)/m/n' instead on input line 51.
+(Font)              using `EU1/DejaVuSerif(0)/m/n' instead on input line 52.
 
 [1
 
@@ -879,12 +878,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 16807 strings out of 494146
- 344489 string characters out of 3152894
- 351492 words of memory out of 3000000
- 19837 multiletter control sequences out of 15000+200000
- 9327 words of font info for 58 fonts, out of 3000000 for 9000
+ 16809 strings out of 494146
+ 344458 string characters out of 3152894
+ 355492 words of memory out of 3000000
+ 19840 multiletter control sequences out of 15000+200000
+ 9319 words of font info for 57 fonts, out of 3000000 for 9000
  1018 hyphenation exceptions out of 8191
- 50i,7n,37p,616b,321s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 50i,7n,37p,616b,319s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on ask2.pdf (3 pages).
