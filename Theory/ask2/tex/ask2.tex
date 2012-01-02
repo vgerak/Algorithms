@@ -1,5 +1,6 @@
 %{{{Header
-\documentclass[a4paper,10pt]{article} \usepackage{anysize}
+\documentclass[a4paper,11pt]{book}
+\usepackage{anysize}
 \marginsize{2cm}{2cm}{1cm}{1cm}
 %\textwidth 6.0in \textheight = 664pt
 \usepackage{xltxtra}
@@ -9,6 +10,8 @@
 \usepackage{fancyvrb}
 \usepackage{minted}
 \usepackage{listings}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
 \usepackage{enumitem}
 \usepackage{framed}
 \usepackage{relsize}
@@ -29,6 +32,29 @@
 
 %{{{ Επιτροπή Αντιπροσώπων
 \section{Επιτροπή Αντιπροσώπων} \setcounter{section}{1}
+
+\begin{algorithm}[H]
+\caption{Άσκηση 1}
+\begin{algorithmic}[1]
+\Procedure{Representants Selection}{$A, N$}
+    \State Sort A on ascending order using f\textsubscript{i} as key
+    \State $i = 0$
+    \While{i < N \textbf{and} s\textsubscript{i} < f\textsubscript{1}}
+        \State $i \gets i+1$
+    \EndWhile
+    \State $i \gets i-1$
+    \State $RepresentativesList.append (i)$
+    \For{j \gets i to 1 \step -1}
+	A.remove (j)
+    \EndFor
+    \State $j \gets 1$
+    \While{$\lnot \Call{Empty}{t}$}
+        \State $item \gets \Call{ExtractMin}{t}$
+    \EndWhile
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
 
 %}}}
 

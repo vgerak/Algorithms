@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2011.11.14)  14 DEC 2011 14:50
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2011.11.14)  2 JAN 2012 15:12
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -16,19 +16,20 @@ iya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, kurmanji,
 ish, portuguese, romanian, russian, sanskrit, serbian, serbianc, slovak, sloven
 ian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, welsh, loaded
 .
-(/usr/local/texlive/2011/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2011/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/bk11.clo
+File: bk11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count80
-\c@section=\count81
-\c@subsection=\count82
-\c@subsubsection=\count83
-\c@paragraph=\count84
-\c@subparagraph=\count85
-\c@figure=\count86
-\c@table=\count87
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
@@ -66,19 +67,19 @@ Package: l3names 2011/10/09 v2896 L3 Experimental namespace for primitives
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/etex-pkg/etex.sty
 Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
-\et@xins=\count88
+\et@xins=\count89
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count89
-\calc@Bcount=\count90
+\calc@Acount=\count90
+\calc@Bcount=\count91
 \calc@Adimen=\dimen107
 \calc@Bdimen=\dimen108
 \calc@Askip=\skip43
 \calc@Bskip=\skip44
 LaTeX Info: Redefining \setlength on input line 76.
 LaTeX Info: Redefining \addtolength on input line 77.
-\calc@Ccount=\count91
+\calc@Ccount=\count92
 \calc@Cskip=\skip45
 )
 Package: expl3 2011/10/09 v2900 L3 Experimental code bundle wrapper
@@ -120,44 +121,44 @@ Package: l3seq 2011/10/09 v2896 L3 Experimental sequences and stacks
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/l3kernel/l3int.sty
 Package: l3int 2011/10/09 v2896 L3 Experimental integers
-\c_max_int=\count92
-\l_tmpa_int=\count93
-\l_tmpb_int=\count94
-\l_tmpc_int=\count95
-\g_tmpa_int=\count96
-\g_tmpb_int=\count97
-\g_seq_nesting_depth_int=\count98
-\g_tl_inline_level_int=\count99
+\c_max_int=\count93
+\l_tmpa_int=\count94
+\l_tmpb_int=\count95
+\l_tmpc_int=\count96
+\g_tmpa_int=\count97
+\g_tmpb_int=\count98
+\g_seq_nesting_depth_int=\count99
+\g_tl_inline_level_int=\count100
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/l3kernel/l3quark.sty
 Package: l3quark 2011/10/09 v2896 L3 Experimental quarks
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/l3kernel/l3prg.sty
 Package: l3prg 2011/10/09 v2896 L3 Experimental control structures
-\g_prg_stepwise_level_int=\count100
+\g_prg_stepwise_level_int=\count101
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/l3kernel/l3clist.sty
 Package: l3clist 2011/10/09 v2896 L3 Experimental comma separated lists
-\g_clist_map_inline_int=\count101
+\g_clist_map_inline_int=\count102
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/l3kernel/l3token.sty
 Package: l3token 2011/10/09 v2896 L3 Experimental token manipulation
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/l3kernel/l3prop.sty
 Package: l3prop 2011/09/17 v2839 L3 Experimental property lists
-\g_prop_map_inline_int=\count102
+\g_prop_map_inline_int=\count103
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/l3kernel/l3msg.sty
 Package: l3msg 2011/10/09 v2896 L3 Experimental messages
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/l3kernel/l3io.sty
 Package: l3io 2011/10/09 v2896 L3 Experimental input-output operations
-\l_iow_stream_int=\count103
-\l_iow_line_length_int=\count104
-\l_iow_target_length_int=\count105
-\l_iow_current_line_int=\count106
-\l_iow_current_word_int=\count107
-\l_iow_current_indentation_int=\count108
+\l_iow_stream_int=\count104
+\l_iow_line_length_int=\count105
+\l_iow_target_length_int=\count106
+\l_iow_current_line_int=\count107
+\l_iow_current_word_int=\count108
+\l_iow_current_indentation_int=\count109
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/l3kernel/l3file.sty
 Package: l3file 2011/10/09 v2896 L3 Experimental file operations
@@ -177,63 +178,63 @@ Package: l3skip 2011/10/09 v2896 L3 Experimental dimensions and skips
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/l3kernel/l3keys.sty
 Package: l3keys 2011/09/10 v2800 L3 Experimental key-value interfaces
-\g_keyval_level_int=\count109
-\l_keys_choice_int=\count110
+\g_keyval_level_int=\count110
+\l_keys_choice_int=\count111
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/l3kernel/l3fp.sty
 Package: l3fp 2011/09/26 v2857 L3 Experimental floating-point operations
-\c_one_million=\count111
-\c_one_hundred_million=\count112
-\c_five_hundred_million=\count113
-\c_one_thousand_million=\count114
-\c_fp_pi_by_four_decimal_int=\count115
-\c_fp_pi_by_four_extended_int=\count116
-\c_fp_pi_decimal_int=\count117
-\c_fp_pi_extended_int=\count118
-\c_fp_two_pi_decimal_int=\count119
-\c_fp_two_pi_extended_int=\count120
-\l_fp_count_int=\count121
-\l_fp_div_offset_int=\count122
-\l_fp_exp_integer_int=\count123
-\l_fp_exp_decimal_int=\count124
-\l_fp_exp_extended_int=\count125
-\l_fp_exp_exponent_int=\count126
-\l_fp_input_a_sign_int=\count127
-\l_fp_input_a_integer_int=\count128
-\l_fp_input_a_decimal_int=\count129
-\l_fp_input_a_exponent_int=\count130
-\l_fp_input_b_sign_int=\count131
-\l_fp_input_b_integer_int=\count132
-\l_fp_input_b_decimal_int=\count133
-\l_fp_input_b_exponent_int=\count134
-\l_fp_input_a_extended_int=\count135
-\l_fp_input_b_extended_int=\count136
-\l_fp_mul_a_i_int=\count137
-\l_fp_mul_a_ii_int=\count138
-\l_fp_mul_a_iii_int=\count139
-\l_fp_mul_a_iv_int=\count140
-\l_fp_mul_a_v_int=\count141
-\l_fp_mul_a_vi_int=\count142
-\l_fp_mul_b_i_int=\count143
-\l_fp_mul_b_ii_int=\count144
-\l_fp_mul_b_iii_int=\count145
-\l_fp_mul_b_iv_int=\count146
-\l_fp_mul_b_v_int=\count147
-\l_fp_mul_b_vi_int=\count148
-\l_fp_mul_output_int=\count149
-\l_fp_output_sign_int=\count150
-\l_fp_output_integer_int=\count151
-\l_fp_output_decimal_int=\count152
-\l_fp_output_exponent_int=\count153
-\l_fp_output_extended_int=\count154
-\l_fp_round_position_int=\count155
-\l_fp_round_target_int=\count156
-\l_fp_split_sign_int=\count157
-\l_fp_tmp_int=\count158
-\l_fp_trig_octant_int=\count159
-\l_fp_trig_sign_int=\count160
-\l_fp_trig_decimal_int=\count161
-\l_fp_trig_extended_int=\count162
+\c_one_million=\count112
+\c_one_hundred_million=\count113
+\c_five_hundred_million=\count114
+\c_one_thousand_million=\count115
+\c_fp_pi_by_four_decimal_int=\count116
+\c_fp_pi_by_four_extended_int=\count117
+\c_fp_pi_decimal_int=\count118
+\c_fp_pi_extended_int=\count119
+\c_fp_two_pi_decimal_int=\count120
+\c_fp_two_pi_extended_int=\count121
+\l_fp_count_int=\count122
+\l_fp_div_offset_int=\count123
+\l_fp_exp_integer_int=\count124
+\l_fp_exp_decimal_int=\count125
+\l_fp_exp_extended_int=\count126
+\l_fp_exp_exponent_int=\count127
+\l_fp_input_a_sign_int=\count128
+\l_fp_input_a_integer_int=\count129
+\l_fp_input_a_decimal_int=\count130
+\l_fp_input_a_exponent_int=\count131
+\l_fp_input_b_sign_int=\count132
+\l_fp_input_b_integer_int=\count133
+\l_fp_input_b_decimal_int=\count134
+\l_fp_input_b_exponent_int=\count135
+\l_fp_input_a_extended_int=\count136
+\l_fp_input_b_extended_int=\count137
+\l_fp_mul_a_i_int=\count138
+\l_fp_mul_a_ii_int=\count139
+\l_fp_mul_a_iii_int=\count140
+\l_fp_mul_a_iv_int=\count141
+\l_fp_mul_a_v_int=\count142
+\l_fp_mul_a_vi_int=\count143
+\l_fp_mul_b_i_int=\count144
+\l_fp_mul_b_ii_int=\count145
+\l_fp_mul_b_iii_int=\count146
+\l_fp_mul_b_iv_int=\count147
+\l_fp_mul_b_v_int=\count148
+\l_fp_mul_b_vi_int=\count149
+\l_fp_mul_output_int=\count150
+\l_fp_output_sign_int=\count151
+\l_fp_output_integer_int=\count152
+\l_fp_output_decimal_int=\count153
+\l_fp_output_exponent_int=\count154
+\l_fp_output_extended_int=\count155
+\l_fp_round_position_int=\count156
+\l_fp_round_target_int=\count157
+\l_fp_split_sign_int=\count158
+\l_fp_tmp_int=\count159
+\l_fp_trig_octant_int=\count160
+\l_fp_trig_sign_int=\count161
+\l_fp_trig_decimal_int=\count162
+\l_fp_trig_extended_int=\count163
 \l_fp_tmp_dim=\dimen114
 \l_fp_tmp_skip=\skip51
 )
@@ -286,20 +287,20 @@ Package: l3color 2011/09/07 v2776 L3 Experimental colour support
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/l3kernel/l3luatex.sty
 Package: l3luatex 2011/09/10 v2798 L3 Experimental LuaTeX-specific functions
-\g_cctab_allocate_int=\count163
-\g_cctab_stack_int=\count164
+\g_cctab_allocate_int=\count164
+\g_cctab_stack_int=\count165
 ))
 (/usr/local/texlive/2011/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2011/10/09 v2900 L3 Experimental document command parser
-\l_xparse_m_args_int=\count165
-\l_xparse_mandatory_args_int=\count166
-\l_xparse_processor_int=\count167
-\l_xparse_total_args_int=\count168
-\l_xparse_v_nesting_int=\count169
+\l_xparse_m_args_int=\count166
+\l_xparse_mandatory_args_int=\count167
+\l_xparse_processor_int=\count168
+\l_xparse_total_args_int=\count169
+\l_xparse_v_nesting_int=\count170
 )
-\l_fontspec_script_int=\count170
-\l_fontspec_language_int=\count171
-\l_fontspec_strnum_int=\count172
+\l_fontspec_script_int=\count171
+\l_fontspec_language_int=\count172
+\l_fontspec_strnum_int=\count173
 \l_fontspec_tmpa_dim=\dimen144
 \l_fontspec_tmpb_dim=\dimen145
 \l_fontspec_tmpc_dim=\dimen146
@@ -350,7 +351,7 @@ LaTeX Font Info:    Try loading font information for EU1+lmss on input line 357
 (/usr/local/texlive/2011/texmf-dist/tex/latex/euenc/eu1lmss.fd
 File: eu1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
-\tipaTiiicode=\count173
+\tipaTiiicode=\count174
 \tipasavetokens=\toks14
 \tipachecktokens=\toks15
 
@@ -471,7 +472,7 @@ Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 Variant \prop_gput:cnV already defined; not changing it on line 485
 Variant \prop_gput:cnx already defined; not changing it on line 486
 Variant \keys_set:nx already defined; not changing it on line 963
-\c@fontspec_tmp_int=\count174
+\c@fontspec_tmp_int=\count175
 LaTeX Info: Redefining \itshape on input line 1881.
 LaTeX Info: Redefining \slshape on input line 1885.
 LaTeX Info: Redefining \scshape on input line 1889.
@@ -529,18 +530,18 @@ LaTeX Info: Redefining \LaTeXe on input line 219.
 File: xgreek.sty 2011/09/27 v2.3 Package `xgreek.sty'
 
 Package `xgreek' version 2.3 by Apostolos Syropoulos
-\@attic@num=\count175
+\@attic@num=\count176
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
 <2008/02/07> (tvz)
-\FV@CodeLineNo=\count176
+\FV@CodeLineNo=\count177
 \FV@InFile=\read1
 \FV@TabBox=\box36
-\c@FancyVerbLine=\count177
-\FV@StepNumber=\count178
+\c@FancyVerbLine=\count178
+\FV@StepNumber=\count179
 \FV@OutFile=\write3
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/minted/minted.sty
@@ -565,7 +566,7 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count179
+\c@float@type=\count180
 \float@exts=\toks19
 \float@box=\box37
 \@float@everytoks=\toks20
@@ -616,7 +617,7 @@ runsystem(rm -- "ask2.w18")...executed.
 \minted@bgbox=\box39
 \minted@code=\write4
 \@float@every@listing=\toks21
-\c@listing=\count180
+\c@listing=\count181
 )
 runsystem(which pygmentize && touch ask2.aex)...executed.
 
@@ -624,23 +625,23 @@ runsystem(rm ask2.aex)...executed.
 
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count181
+\lst@mode=\count182
 \lst@gtempboxa=\box40
 \lst@token=\toks22
-\lst@length=\count182
+\lst@length=\count183
 \lst@currlwidth=\dimen150
-\lst@column=\count183
-\lst@pos=\count184
+\lst@column=\count184
+\lst@pos=\count185
 \lst@lostspace=\dimen151
 \lst@width=\dimen152
-\lst@newlines=\count185
-\lst@lineno=\count186
+\lst@newlines=\count186
+\lst@lineno=\count187
 \lst@maxwidth=\dimen153
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-\c@lstnumber=\count187
-\lst@skipnumbers=\count188
+\c@lstnumber=\count188
+\lst@skipnumbers=\count189
 \lst@framebox=\box41
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/listings/listings.cfg
@@ -648,13 +649,39 @@ File: listings.cfg 2007/02/22 1.4 listings configuration
 ))
 Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
+(/usr/local/texlive/2011/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count190
+\c@ALG@rem=\count191
+\c@ALG@nested=\count192
+\ALG@tlm=\skip52
+\ALG@thistlm=\skip53
+\c@ALG@Lnr=\count193
+\c@ALG@blocknr=\count194
+\c@ALG@storecount=\count195
+\c@ALG@tmpcounter=\count196
+\ALG@tmplength=\skip54
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/local/texlive/2011/texmf-dist/tex/latex/algorithms/algorithm.sty
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+\@float@every@algorithm=\toks23
+\c@algorithm=\count197
+)
 (/usr/local/texlive/2011/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
-\labelindent=\skip52
+\labelindent=\skip55
 \enit@outerparindent=\dimen154
-\enit@toks=\toks23
+\enit@toks=\toks24
 \enit@inbox=\box42
-\enitdp@description=\count189
+\enitdp@description=\count198
 )
 (/usr/local/texlive/2011/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2007/10/04 v 0.95: framed or shaded text with page breaks
@@ -666,17 +693,17 @@ Package: framed 2007/10/04 v 0.95: framed or shaded text with page breaks
 (/usr/local/texlive/2011/texmf-dist/tex/latex/relsize/relsize.sty
 Package: relsize 2011/09/21 ver 4.0
 
-Examine \normalsize starts \@setfontsize size may be \@xpt. 
-Examine \small starts \@setfontsize size may be \@ixpt. 
-Examine \footnotesize starts \@setfontsize size may be \@viiipt. 
+Examine \normalsize starts \@setfontsize size may be \@xipt. 
+Examine \small starts \@setfontsize size may be \@xpt. 
+Examine \footnotesize starts \@setfontsize size may be \@ixpt. 
 Examine \large starts \@setfontsize size may be \@xiipt. 
 Examine \Large starts \@setfontsize size may be \@xivpt. 
 Examine \LARGE starts \@setfontsize size may be \@xviipt. 
-Examine \scriptsize starts \@setfontsize size may be \@viipt. 
-Examine \tiny starts \@setfontsize size may be \@vpt. 
+Examine \scriptsize starts \@setfontsize size may be \@viiipt. 
+Examine \tiny starts \@setfontsize size may be \@vipt. 
 Examine \huge starts \@setfontsize size may be \@xxpt. 
 Examine \Huge starts \@setfontsize size may be \@xxvpt. )
-\g_fontspec_family_DejaVu Serif_int=\count190
+\g_fontspec_family_DejaVu Serif_int=\count199
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -702,27 +729,28 @@ Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
 (./title/title.aux))
 \openout1 = `ask2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 22.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 25.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 25.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    ... okay on input line 25.
+Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
 .................................................
 . fontspec info: "setup-math"
 . 
@@ -730,114 +758,59 @@ LaTeX Font Info:    ... okay on input line 22.
 .................................................
 \symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 22.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 22.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 22.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 22.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 22.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 22.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 22.
-LaTeX Font Info:    Redeclaring math accent \check on input line 22.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 22.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 22.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \colon on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 22.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 22.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 25.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 25.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 25.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 25.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 25.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 25.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 25.
+LaTeX Font Info:    Redeclaring math accent \check on input line 25.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 25.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 25.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \colon on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 25.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 25.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `normal' on input line 22.
+(Font)              `operators' in the math version `normal' on input line 25.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> EU1/DejaVuSerif(0)/m/n on input line 22
+(Font)                  OT1/cmr/m/n --> EU1/DejaVuSerif(0)/m/n on input line 25
 .
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `bold' on input line 22.
+(Font)              `operators' in the math version `bold' on input line 25.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> EU1/DejaVuSerif(0)/m/n on input line 2
-2.
+5.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  EU1/DejaVuSerif(0)/m/n --> EU1/DejaVuSerif(0)/m/n on in
-put line 22.
+put line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
 (Font)                  EU1/DejaVuSerif(0)/m/n --> EU1/DejaVuSerif(0)/m/n on in
-put line 22.
+put line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> EU1/DejaVuSerif(0)/m/it on input line 
-22.
+25.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> EU1/DejaVuSerif(0)/bx/n on input line 
-22.
+25.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> EU1/lmss/m/n on input line 22.
+(Font)                  OT1/cmss/m/n --> EU1/lmss/m/n on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> EU1/lmtt/m/n on input line 22.
+(Font)                  OT1/cmtt/m/n --> EU1/lmtt/m/n on input line 25.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  EU1/DejaVuSerif(0)/m/n --> EU1/DejaVuSerif(0)/bx/n on i
-nput line 22.
+nput line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  EU1/DejaVuSerif(0)/m/n --> EU1/DejaVuSerif(0)/bx/n on i
-nput line 22.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> EU1/DejaVuSerif(0)/bx/it on input lin
-e 22.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> EU1/lmss/bx/n on input line 22.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> EU1/lmtt/bx/n on input line 22.
-runsystem(pygmentize -S default -f latex > ask2.pyg)...executed.
-
- (./ask2.pyg)
-\c@lstlisting=\count191
-\openout2 = `title/title.aux'.
-
-
-(./title/title.tex
-Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
-Font mapping `TeX-text.tec' for font `DejaVu Serif Italic' not found.
-Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 10.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 10.
-Font mapping `TeX-text.tec' for font `DejaVu Serif Italic' not found.
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--12
-
- []
-
-File: title/ntua_logo.eps Graphic file (type eps)
-<title/ntua_logo.eps>
-Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
-Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <20.74> on input line 20.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 20.
- [1
-
-
-])
-Font mapping `TeX-text.tec' for font `DejaVu Serif Bold' not found.
- [1
-
-] (./ask2.aux (./title/title.aux)) ) 
-Here is how much of TeX's memory you used:
- 16247 strings out of 494146
- 335867 string characters out of 3152894
- 338456 words of memory out of 3000000
- 19300 multiletter control sequences out of 15000+200000
- 6540 words of font info for 43 fonts, out of 3000000 for 9000
- 1018 hyphenation exceptions out of 8191
- 50i,7n,37p,616b,313s stack positions out of 5000i,500n,10000p,200000b,50000s
-
-Output written on ask2.pdf (2 pages).
+(Font)                  
