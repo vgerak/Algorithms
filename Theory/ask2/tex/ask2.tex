@@ -1,5 +1,5 @@
 %{{{Header
-\documentclass[a4paper,11pt]{book}
+\documentclass[a4paper,11pt]{article}
 \usepackage{anysize}
 \marginsize{2cm}{2cm}{1cm}{1cm}
 %\textwidth 6.0in \textheight = 664pt
@@ -31,30 +31,46 @@
 %}}}
 
 %{{{ Επιτροπή Αντιπροσώπων
-\section{Επιτροπή Αντιπροσώπων} \setcounter{section}{1}
+\section{Επιτροπή Αντιπροσώπων (KT 4.15)} \setcounter{section}{1}
+Ταξινομούμε τον πίνακα με βάση τα $f_i$. Βρίσκουμε το διάστημα (έστω m) με το
+μέγιστο $f_m$ που η αρχή του $s_m$ βρίσκεται πρίν το τέλος του 1ου $f_1$ και
+το επιλέγουμε ως αντιπρόσωπο.
+Θα αποδείξουμε ότι η επιλογή που κάνουμε (σε κάθε βήμα) είναι και η βέλτιστη
+δυνατή. \\
+Έστω k, ένας διαφορετικός αντιπρόσωπος, που είναι η βέλτιστη επιλογή. Δεν
+είναι δυνατόν να έχει δείκτη $k > m$, αφού έτσι δε θα επικάλυπτε το 1o διάστημα
+(εξ'ορισμού του m). Αφού λοιπόν $k \leq m$ θα ισχύει και $f_k \leq f_m$. Άρα ο
+k επικαλύπτει \emph{το πολύ} όσα διαστήματα επικαλύπτει η επιλογή μας,
+επομένως η επιμέρους λύση μας είναι η βέλτιστη.
+Eπαγωγικά προκύπτει η oρθότητα του αλγορίθμου μας.
 
 \begin{algorithm}[H]
 \caption{Άσκηση 1}
 \begin{algorithmic}[1]
-\Procedure{Representants Selection}{$A, N$}
-    \State Sort A on ascending order using f\textsubscript{i} as key
-    \State $i = 0$
-    \While{i < N \textbf{and} s\textsubscript{i} < f\textsubscript{1}}
+    \State Sort A on ascending order using $f_i$ as key
+\Procedure{RepresentantivesSelect}{$A, N$}
+    \If{$\Call{Empty}{A}$}
+    \State \textbf{return} $RepresentativesList$
+    \Else
+    \State $i = 1$
+    \While{i < N \textbf{and} $s_i$ < $f_1$}
         \State $i \gets i+1$
     \EndWhile
     \State $i \gets i-1$
     \State $RepresentativesList.append (i)$
-    \For{j \gets i to 1 \step -1}
-	A.remove (j)
+    \If {$f_i$ > $s_{i+1}$}
+	\State $A.remove(i+1)$
+	\State $N \gets N-1$
+    \EndIf
+    \For{$j \gets i$ \textbf{to} 1 \textbf{step} -1}
+	\State $A.remove (j)$
+	\State $N \gets N-1$
     \EndFor
-    \State $j \gets 1$
-    \While{$\lnot \Call{Empty}{t}$}
-        \State $item \gets \Call{ExtractMin}{t}$
-    \EndWhile
+    \State \textbf{return} RepresentativesSelect ($A, N$)
+    \EndIf
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
-
 
 %}}}
 
@@ -62,42 +78,35 @@
 
 %{{{ Βιαστικός Μοτοσυκλετιστής
 \section{Βιαστικός Μοτοσυκλετιστής}
-
+Test2
 %}}}
 
 \vspace{3cm}
 
 %{{{ Βότσαλα στη Σκακιέρα
-\section{Βότσαλα στη Σκακιέρα}
-
+\section{Βότσαλα στη Σκακιέρα (DVP 6.5)}
+Test3
 %}}}
 
 \vspace{3cm}
 
 %{{{ Χωρισμός Κειμένου σε Γραμμές
 \section{Χωρισμός Κειμένου σε Γραμμές}
-
+Test4
 %}}}
 
 \vspace{3cm}
 
 %{{{ Αντίγραφα Αρχείου
-\section{Αντίγραφα Αρχείου}
-
+\section{Αντίγραφα Αρχείου (KT 6.12)}
+Test5
 %}}}
 
 \vspace{3cm}
 
-%{{{ Έλεγχός Ταξινόμησης
-\section{Έλεγχος Ταξινόμησης}
-
-%}}}
-
-\vspace{3cm}
-
-%{{{ Bonus: Δρομολόγηση Εργασιών
-\section{Bonus: Δρομολόγηση Εργασιών}
-
+%{{{Bonus: Έλεγχός Ταξινόμησης
+\section{Bonus: Έλεγχος Ταξινόμησης}
+Bonus!
 %}}}
 
 \end{document}
