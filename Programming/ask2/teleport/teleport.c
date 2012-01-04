@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Wed Jan  4 19:30:00 2012
+ * Last Modified : Wed Jan  4 19:45:42 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -55,14 +55,14 @@ int main()
         {
             right-> start = a;
             right-> end = b;
-            printf("Right # %d starts on %ld and ends on %ld \n", r, right->start, right->end);
+            //printf("Right # %d starts on %ld and ends on %ld \n", r, right->start, right->end);
             r++;
         }
         else
         {
             left-> start = a;
             left-> end = b;
-            printf("Left # %d starts on %ld and ends on %ld \n", l, left->start, left->end);
+            //printf("Left # %d starts on %ld and ends on %ld \n", l, left->start, left->end);
             l++;
         }
     }
