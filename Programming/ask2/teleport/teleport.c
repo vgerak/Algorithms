@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Wed Jan  4 19:45:42 2012
+ * Last Modified : Wed Jan  4 19:46:15 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -34,11 +34,6 @@ int main()
     r = l = 0;
     scanf("%d", &N);
 
-    /*
-     * Create the 2-D arrays:
-     * [0] marks startpoint
-     * [1] marks endpoint
-     */
     left = (tlist *) calloc(N,sizeof(tlist));
     right = (tlist *) calloc(N,sizeof(tlist));
     if ((left == NULL) || (right == NULL))
