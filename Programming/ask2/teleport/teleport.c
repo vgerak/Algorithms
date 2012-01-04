@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Wed Jan  4 18:42:58 2012
+ * Last Modified : Wed Jan  4 19:30:00 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -16,10 +16,17 @@
 #include<stdlib.h>
 
 int N, r, l;
+struct tps{
+    long int start;
+    long int end;
+    int out;        //Don't know if it's gonna be used yet, rules out scientist if set
+};
+
+typedef struct tps tlist;
 
 long int a,b;
-long int **left;
-long int **right;
+tlist *right;
+tlist *left;
 int i,j;
 
 int main()
@@ -32,13 +39,8 @@ int main()
      * [0] marks startpoint
      * [1] marks endpoint
      */
-    left = (long int **) calloc(2, sizeof(long));
-    right = (long int **) calloc(2, sizeof(long));
-    for (i = 0; i < 2; i++)
-    {
-        right[i] = (long *) calloc(N, sizeof(long));
-        left[i] = (long *) calloc(N, sizeof(long));
-    }
+    left = (tlist *) calloc(N,sizeof(tlist));
+    right = (tlist *) calloc(N,sizeof(tlist));
     if ((left == NULL) || (right == NULL))
     {
         printf("Out of memory\n");
@@ -51,16 +53,16 @@ int main()
         scanf("%ld %ld", &a, &b);
         if (a < b)
         {
-            right[0][r] = a;
-            right[1][r] = b;
-            //printf("Right # %d starts on %ld and ends on %ld \n", r, right[0][r], right[1][r]);
+            right-> start = a;
+            right-> end = b;
+            printf("Right # %d starts on %ld and ends on %ld \n", r, right->start, right->end);
             r++;
         }
         else
         {
-            left[0][l] = a;
-            left[1][l] = b;
-            //printf("Left # %d starts on %ld and ends on %ld \n", l, left[0][l], left[1][l]);
+            left-> start = a;
+            left-> end = b;
+            printf("Left # %d starts on %ld and ends on %ld \n", l, left->start, left->end);
             l++;
         }
     }
