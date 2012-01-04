@@ -33,7 +33,7 @@
 %{{{ Επιτροπή Αντιπροσώπων
 \section{Επιτροπή Αντιπροσώπων (KT 4.15)} \setcounter{section}{1}
 Ταξινομούμε τον πίνακα σε αύξουσα σειρά με βάση τα $f_i$. Βρίσκουμε το διάστημα (έστω m) με το
-μέγιστο $f_m$ που η αρχή του $s_m$ βρίσκεται πρίν το τέλος του 1ου $f_1$ και
+μέγιστο $f_m$ που η αρχή του $s_m$ βρίσκεται πρίν το τέλος του 1ου, $f_1$ και
 το επιλέγουμε ως αντιπρόσωπο.
 Θα αποδείξουμε ότι η επιλογή που κάνουμε (σε κάθε βήμα) είναι και η βέλτιστη
 δυνατή.
@@ -50,23 +50,26 @@ Eπαγωγικά προκύπτει η oρθότητα του αλγορίθμ�
 \begin{algorithmic}[1]
     \State Sort A on ascending order using $f_i$ as key
 \Procedure{RepresentantivesSelect}{$A, N$}
-    \If{$\Call{Empty}{A}$}
+    \If{$N = 0$}
     \State \textbf{return} $RepresentativesList$
     \Else
-    \State $i = 1$
-    \While{i < N \textbf{and} $s_i$ < $f_1$}
+    \State $i \gets 1$
+    \While{$i \leq N$ \textbf{and} $s_i$ < $f_1$}
         \State $i \gets i+1$
     \EndWhile
     \State $i \gets i-1$
     \State $RepresentativesList.append (i)$
-    \If {$f_i$ > $s_{i+1}$}
-	\State $A.remove(i+1)$
+    \State $j \gets i+1$
+    \While {$f_i$ > $s_j$}
+	\State $A.remove(j)$
 	\State $N \gets N-1$
-    \EndIf
+	\State $j \gets j+1$
+    \EndWhile
     \For{$j \gets i$ \textbf{to} 1 \textbf{step} -1}
 	\State $A.remove (j)$
 	\State $N \gets N-1$
     \EndFor
+    \State $A.remove(i)$
     \State \textbf{return} RepresentativesSelect ($A, N$)
     \EndIf
 \EndProcedure
@@ -97,7 +100,6 @@ $T_{total}=\displaystyle\sum\limits_{i=1}^n{t_i} =
 όλες οι τιμές είναι δεδομένες και σταθερές ($T, v_i, l_i$), οποιοδήποτε άλλο
 διάστημα αν επιλέγαμε, θα έδινε ποσοστιαίο κέρδος χρόνου \textbf{το πολύ} όσο αυτό
 που υπολογίσαμε, επομένως η επιμέρους λύση μας είναι η βέλτιστη.\\
-Επαγωγικά προκύπτει η ορθότητα του αλγορίθμου μας.
 
 \begin{algorithm}[H]
 \caption{Άσκηση 2}
@@ -119,6 +121,12 @@ $T_{total}=\displaystyle\sum\limits_{i=1}^n{t_i} =
 \end{algorithmic}
 \end{algorithm}
 
+Η πολυπλοκότητα του αλγορίθμου είναι $\Theta(n\log{n})$, όσο χρειάζεται η
+ταξινόμηση. Στον ταξινομημένο πίνακα το αποτέλεσμα προκύπτει σε γραμμικό
+χρόνο.
+Στην περίπτωση που η υπέρβαση στο όριο γινόταν κατά παράγοντα α > 1, η επιλογή
+του διαστήματος δε θα επηρρέαζε το αποτέλεσμα, αφού το ποσοστιαίο κέρδος θα
+ήταν το ίδιο για όλα τα διαστήματα.
 
 %}}}
 

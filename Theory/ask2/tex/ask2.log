@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2011.11.14)  2 JAN 2012 19:57
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2011.11.14)  4 JAN 2012 15:33
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -870,6 +870,11 @@ Font mapping `TeX-text.tec' for font `DejaVu Serif' not found.
 LaTeX Font Warning: Font shape `EU1/DejaVuSerif(0)/m/sc' undefined
 (Font)              using `EU1/DejaVuSerif(0)/m/n' instead on input line 52.
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--103
+
+ []
+
 [1
 
 ] [2] (./ask2.aux (./title/title.aux))
@@ -878,12 +883,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 16809 strings out of 494146
- 344458 string characters out of 3152894
- 355492 words of memory out of 3000000
- 19840 multiletter control sequences out of 15000+200000
+ 16807 strings out of 494146
+ 344434 string characters out of 3152894
+ 356492 words of memory out of 3000000
+ 19838 multiletter control sequences out of 15000+200000
  9319 words of font info for 57 fonts, out of 3000000 for 9000
  1018 hyphenation exceptions out of 8191
- 50i,7n,37p,616b,319s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 50i,7n,37p,616b,315s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on ask2.pdf (3 pages).
