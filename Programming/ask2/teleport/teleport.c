@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Wed Jan  4 19:46:15 2012
+ * Last Modified : Thu Jan  5 05:03:44 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -16,12 +16,12 @@
 #include<stdlib.h>
 
 int N, r, l;
+
 struct tps{
     long int start;
     long int end;
     int out;        //Don't know if it's gonna be used yet, rules out scientist if set
 };
-
 typedef struct tps tlist;
 
 long int a,b;
@@ -48,16 +48,16 @@ int main()
         scanf("%ld %ld", &a, &b);
         if (a < b)
         {
-            right-> start = a;
-            right-> end = b;
-            //printf("Right # %d starts on %ld and ends on %ld \n", r, right->start, right->end);
+            right[r].start = a;
+            right[r].end = b;
+            printf("Right # %d starts on %ld and ends on %ld \n", r, right[r].start, right[r].end);
             r++;
         }
         else
         {
-            left-> start = a;
-            left-> end = b;
-            //printf("Left # %d starts on %ld and ends on %ld \n", l, left->start, left->end);
+            left[l].start = a;
+            left[l].end = b;
+            printf("Left # %d starts on %ld and ends on %ld \n", l, left[l].start, left[l].end);
             l++;
         }
     }
