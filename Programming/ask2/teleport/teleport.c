@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Thu Jan  5 22:53:31 2012
+ * Last Modified : Thu Jan  5 22:54:27 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -39,7 +39,7 @@ int compareR(const tlist *A, const tlist *B)
 }
 int compareL(const tlist *A, const tlist *B)
 {
-    if(A->start != B->start)
+    if(A->end != B->end)
         return( A->end - B->end);
     else
         return (A->start - B->start);
