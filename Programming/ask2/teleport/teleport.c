@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Thu Jan  5 05:03:44 2012
+ * Last Modified : Thu Jan  5 22:53:31 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -29,8 +29,28 @@ tlist *right;
 tlist *left;
 int i,j;
 
+/* Auxiliary functions for quicksort */
+int compareR(const tlist *A, const tlist *B)
+{
+    if(A->start != B->start)
+        return( A->start - B->start);
+    else
+        return( A->end - B->end);
+}
+int compareL(const tlist *A, const tlist *B)
+{
+    if(A->start != B->start)
+        return( A->end - B->end);
+    else
+        return (A->start - B->start);
+}
+
+
+
 int main()
 {
+
+    int i,j;
     r = l = 0;
     scanf("%d", &N);
 
@@ -50,18 +70,29 @@ int main()
         {
             right[r].start = a;
             right[r].end = b;
-            printf("Right # %d starts on %ld and ends on %ld \n", r, right[r].start, right[r].end);
+            //printf("Right # %d starts on %ld and ends on %ld \n", r, right[r].start, right[r].end);
             r++;
         }
         else
         {
             left[l].start = a;
             left[l].end = b;
-            printf("Left # %d starts on %ld and ends on %ld \n", l, left[l].start, left[l].end);
+            //printf("Left # %d starts on %ld and ends on %ld \n", l, left[l].start, left[l].end);
             l++;
         }
     }
+    r--;
+    l--;
 
+    qsort(right,r,sizeof(tlist),compareR);
+    qsort(left,l,sizeof(tlist),compareL);
+
+    /* Sort Testing
+    for(i = 0; i < r; i++)
+        printf("Right # %d starts on %ld and ends on %ld \n", r, right[i].start, right[i].end);
+    for(i = 0; i < l; i++)
+        printf("Left # %d starts on %ld and ends on %ld \n", r, left[i].start, left[i].end);
+    */
 
     return 0;
 }
