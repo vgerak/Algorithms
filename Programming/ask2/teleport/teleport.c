@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Sat Jan  7 00:47:56 2012
+ * Last Modified : Sat Jan  7 00:52:11 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -84,12 +84,12 @@ int main()
 	}
     }
     ec++;
-    /* Sort Testing
+    ///* Sort Testing
     for(i = 0; i < N; i++)
 	printf("Move # %d starts on %ld and ends on %ld \n", i, move[i].start, move[i].end);
     for(i = 0; i < ec; i++)
 	printf("Ending # %d is %ld \n", i, newends[i]);
-    */
+    //*/
 
     /*
      * x[i] stores the index on newends array from the target of i
@@ -99,7 +99,7 @@ int main()
     for (i = 0; i < N; i++)
     {
 	temp = (int*) bsearch(&move[i].end, newends, ec, sizeof(long int), compareB);
-	x[i] = (int*) temp - (int*) memstart;
+	x[i] = ((int*) temp - (int*) memstart)/2;
 	printf("X[%d] = %d\n", i, x[i]);
     }
 
