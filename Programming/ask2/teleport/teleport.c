@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Sat Jan  7 00:52:11 2012
+ * Last Modified : Sat Jan  7 01:16:24 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -23,11 +23,36 @@ struct tps{
 };
 typedef struct tps tlist;
 
-long int a,b;
 long int *ends, *newends;
 int *x;
-int * memstart, *temp;
+int *temp;
 tlist *move;
+
+/*
+ * == Longest Non-Decreasing Subsequence ==
+ * Returns the length of the longest increasing subsequence.
+ */
+int lis( int* a, int N ) {
+   int *best, *prev, i, j, max = 0;
+   best = (int*) malloc ( sizeof( int ) * N );
+   prev = (int*) malloc ( sizeof( int ) * N );
+
+   for ( i = 0; i < N; i++ ) best[i] = 1, prev[i] = i;
+
+   for ( i = 1; i < N; i++ )
+      for ( j = 0; j < i; j++ )
+         if ( a[i] >= a[j] && best[i] < best[j] + 1 )
+            best[i] = best[j] + 1, prev[i] = j;  // prev[] is for backtracking the subsequence
+
+   for ( i = 0; i < N; i++ )
+      if ( max < best[i] )
+         max = best[i];
+
+   free( best );
+   free( prev );
+
+   return max;
+}
 
 /* Auxiliary functions for quicksort & bsearch */
 int compareA(const tlist *A, const tlist *B)
@@ -48,8 +73,9 @@ int compareB(const void *A, const void *B)
 
 int main()
 {
-
+    long int a,b;
     int i,j;
+
     scanf("%d", &N);
     move = (tlist *) calloc(N,sizeof(tlist));
     ends = (long int*) calloc(N,sizeof(long int));
@@ -84,24 +110,29 @@ int main()
 	}
     }
     ec++;
-    ///* Sort Testing
+    /* Sort Testing
     for(i = 0; i < N; i++)
 	printf("Move # %d starts on %ld and ends on %ld \n", i, move[i].start, move[i].end);
     for(i = 0; i < ec; i++)
 	printf("Ending # %d is %ld \n", i, newends[i]);
-    //*/
+    */
 
     /*
      * x[i] stores the index on newends array from the target of i
      * newends is sorted, so binsearch for the win!
      */
-    memstart = (int*) bsearch(&newends[0], newends, ec, sizeof(long int), compareB);
     for (i = 0; i < N; i++)
     {
 	temp = (int*) bsearch(&move[i].end, newends, ec, sizeof(long int), compareB);
-	x[i] = ((int*) temp - (int*) memstart)/2;
-	printf("X[%d] = %d\n", i, x[i]);
+	x[i] = ((int*) temp - (int*) newends)/2; //div 2 to make it look pretty!
+	//printf("X[%d] = %d\n", i, x[i]);
     }
+    /*
+     * Now the problem is reduced in finding the longest NON-REDUCING
+     * subsequence of X[].
+     * We use a modified version of a well-known algorithm and we're done.
+     */
+    printf("HAHA, found %d\n",lis(x,N));
 
     return 0;
 }
