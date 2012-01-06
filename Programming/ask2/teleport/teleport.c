@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Thu Jan  5 22:54:27 2012
+ * Last Modified : Thu Jan  5 23:17:59 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -62,7 +62,7 @@ int main()
         return -1;
     }
 
-    for (i = 1; i < N; i++)
+    for (i = 0; i < N; i++)
     {
         /* Read from input and sort to lefts and rights */
         scanf("%ld %ld", &a, &b);
@@ -81,19 +81,15 @@ int main()
             l++;
         }
     }
-    r--;
-    l--;
 
     qsort(right,r,sizeof(tlist),compareR);
     qsort(left,l,sizeof(tlist),compareL);
-
-    /* Sort Testing
+    ///* Sort Testing
     for(i = 0; i < r; i++)
-        printf("Right # %d starts on %ld and ends on %ld \n", r, right[i].start, right[i].end);
+        printf("Right # %d starts on %ld and ends on %ld \n", i, right[i].start, right[i].end);
     for(i = 0; i < l; i++)
-        printf("Left # %d starts on %ld and ends on %ld \n", r, left[i].start, left[i].end);
-    */
+        printf("Left # %d starts on %ld and ends on %ld \n", i, left[i].start, left[i].end);
+    //*/
 
     return 0;
 }
-
