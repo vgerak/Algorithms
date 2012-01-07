@@ -1,5 +1,6 @@
 %{{{Header
-\documentclass[a4paper,10pt]{article} \usepackage{anysize}
+\documentclass[a4paper,11pt]{article}
+\usepackage{anysize}
 \marginsize{2cm}{2cm}{1cm}{1cm}
 %\textwidth 6.0in \textheight = 664pt
 \usepackage{xltxtra}
@@ -9,6 +10,8 @@
 \usepackage{fancyvrb}
 \usepackage{minted}
 \usepackage{listings}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
 \usepackage{enumitem}
 \usepackage{framed}
 \usepackage{relsize}
@@ -28,50 +31,168 @@
 %}}}
 
 %{{{ Επιτροπή Αντιπροσώπων
-\section{Επιτροπή Αντιπροσώπων} \setcounter{section}{1}
+\section{Επιτροπή Αντιπροσώπων (KT 4.15)} \setcounter{section}{1}
+Ταξινομούμε τον πίνακα σε αύξουσα σειρά με βάση τα $f_i$. Βρίσκουμε το διάστημα (έστω m) με το§
+μέγιστο $f_m$ που η αρχή του $s_m$ βρίσκεται πρίν το τέλος του 1ου, $f_1$ και
+το επιλέγουμε ως αντιπρόσωπο.
+Θα αποδείξουμε ότι η επιλογή που κάνουμε (σε κάθε βήμα) είναι και η βέλτιστη
+δυνατή.
+
+Έστω k, ένας διαφορετικός αντιπρόσωπος, που είναι η βέλτιστη επιλογή. Δεν
+είναι δυνατόν να έχει δείκτη $k > m$, αφού έτσι δε θα επικάλυπτε το 1o διάστημα
+(εξ'ορισμού του m). Αφού λοιπόν $k \leq m$ θα ισχύει και $f_k \leq f_m$. Άρα ο
+k επικαλύπτει \textbf{το πολύ} όσα διαστήματα επικαλύπτει η επιλογή μας,
+επομένως η επιμέρους λύση μας είναι η βέλτιστη.
+Eπαγωγικά προκύπτει η oρθότητα του αλγορίθμου μας.
+
+\begin{algorithm}[H]
+\caption{Άσκηση 1}
+\begin{algorithmic}[1]
+    \State Sort A on ascending order using $f_i$ as key
+\Procedure{RepresentantivesSelect}{$A, N$}
+    \If{$N = 0$}
+    \State \textbf{return} $RepresentativesList$
+    \Else
+    \State $i \gets 1$
+    \While{$i \leq N$ \textbf{and} $s_i$ < $f_1$}
+        \State $i \gets i+1$
+    \EndWhile
+    \State $i \gets i-1$
+    \State $RepresentativesList.append (i)$
+    \State $j \gets i+1$
+    \While {$f_i$ > $s_j$}
+	\State $A.remove(j)$
+	\State $N \gets N-1$
+	\State $j \gets j+1$
+    \EndWhile
+    \For{$j \gets i$ \textbf{to} 1 \textbf{step} -1}
+	\State $A.remove (j)$
+	\State $N \gets N-1$
+    \EndFor
+    \State $A.remove(i)$
+    \State \textbf{return} RepresentativesSelect ($A, N$)
+    \EndIf
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
 
 %}}}
 
-\vspace{3cm}
 
 %{{{ Βιαστικός Μοτοσυκλετιστής
 \section{Βιαστικός Μοτοσυκλετιστής}
+Ταξινομούμε τα διαστήματα σε αύξουσα σειρά με βάση τα όρια ταχυτήτων $v_i$ και
+δημιουργούμε τον πίνακα χρόνων t, όπου $t_i = l_i/v_i$.
+Έστω Τ ο χρόνος που θα ξεπεράσουμε το όριο ταχύτητας και u τα χιλιόμετρα κατά
+τα οποία θα το ξεπεράσουμε. Έαν $T \leq t_1$, τότε κάνουμε Τ λεπτά με $v_1 +
+u$ km/h, και τα υπόλοιπα με το όριο ταχύτητας, αλλιώς κάνουμε $t_1$ λεπτά
+υπερβαίνοντας το όριο και επαναλαμβάνουμε τη διαδικασία για $T - t_1$ λεπτά
+για το επόμενο διάστημα.
+
+Θα αποδείξουμε ότι η επιλογή που κάνουμε σε κάθε βήμα, είναι η βέλτιστη
+δυνατή.
+Ο συνολικός χρόνος που χρειάζεται για να φτάσει στον προορισμό του είναι: \\
+$T_{total}=\displaystyle\sum\limits_{i=1}^n{t_i} =
+\displaystyle\sum\limits_{i=1}^n{\frac{l_i}{u_i}}$.
+
+Η μέγιστη (ποσοστιαία) ελάττωση των χρονικών διαστημάτων προκύπτει αν
+προσθέσουμε την ταχύτητα u στο μικρότερο παρονομαστή $v_i$. Kαθώς λοιπόν
+όλες οι τιμές είναι δεδομένες και σταθερές ($T, v_i, l_i$), οποιοδήποτε άλλο
+διάστημα αν επιλέγαμε, θα έδινε ποσοστιαίο κέρδος χρόνου \textbf{το πολύ} όσο αυτό
+που υπολογίσαμε, επομένως η επιμέρους λύση μας είναι η βέλτιστη.\\
+
+\begin{algorithm}[H]
+\caption{Άσκηση 2}
+\begin{algorithmic}[1]
+    \State Sort A on ascending order using $v_i$ as key
+    \For{$i \gets 1$ \textbf{to} N}
+	\State $t_i \gets l_i / v_i$
+    \EndFor
+\Procedure{TimeSelect}{$A, N$}
+    \State $i \gets 1$
+    \While{$T \geq t_i$}
+	\State $Selection.append (i,t_i)$
+	\State $T \gets T - t_i$
+        \State $i \gets i+1$
+    \EndWhile
+    \State $Selection.append (i, T)$
+    \State \textbf{return} $Selection$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+Η πολυπλοκότητα του αλγορίθμου είναι $\Theta(n\log{n})$, όσο χρειάζεται η
+ταξινόμηση. Στον ταξινομημένο πίνακα το αποτέλεσμα προκύπτει σε γραμμικό
+χρόνο.
+Στην περίπτωση που η υπέρβαση στο όριο γινόταν κατά παράγοντα α > 1, η επιλογή
+του διαστήματος δε θα επηρρέαζε το αποτέλεσμα, αφού το ποσοστιαίο κέρδος θα
+ήταν το ίδιο για όλα τα διαστήματα.
 
 %}}}
 
-\vspace{3cm}
 
 %{{{ Βότσαλα στη Σκακιέρα
-\section{Βότσαλα στη Σκακιέρα}
+\section{Βότσαλα στη Σκακιέρα (DVP 6.5)}
+\subsection{Σύγκριση με άπληστο αλγόριθμο}
+Ο άπληστος αλγόριθμος μας εγγυάται ότι θα πάρει τουλάχιστον το 25\% της
+βέλτιστης λύσης. Το χειρότερο πιθανό σενάριο για την άπληστη επιλογή είναι ένα
+grid της παρακάτω μορφής, με N ένα μεγάλο θετικό αριθμό:
+\begin{center}
+    \begin{tabular}{| l | c | r | }
+    \hline
+    0 & Ν-1 & 0 \\ \hline
+    Ν-1 & Ν & Ν-1 \\ \hline
+    0 & Ν-1 & 0 \\ \hline
+    0 & 0 & 0 \\
+    \hline
+    \end{tabular}
+\end{center}
+
+Στην περίπτωση αυτή ο λόγος της άπληστης λύσης προς τη βέλτιστη είναι
+$Q = \frac{N}{4N-4}$. Tο όριο αυτής της ποσότητας όταν $N \to\infty$ είναι 1/4 ή
+25\%.
+
+\subsection{Βέλτιστη λύση με χρήση δυναμικού προγραμματισμού}
+Έστω A,B,C,D οι 4 σειρές του προβλήματος. Μπορούμε να δημιουργήσουμε 8
+διαφορετικούς έγκυρους συνδυασμούς επιλογής νομισμάτων, καθένας από τους
+οποίους είναι συμβατός με ορισμένους, για την επιλογή στην επόμενη στήλη.
+\begin{center}
+    \begin{tabular}{ | c | c | c |}
+    \hline
+    i & k & k+1 \\ \hline \hline
+    1 & $\emptyset$ & ALL \\ \hline
+    2 & A & $\emptyset$,B,C,D,(B,D) \\ \hline
+    3 & B & $\emptyset$,A,C,D,(A,C),(A,D) \\ \hline
+    4 & C & $\emptyset$,A,B,D,(B,D),(A,D) \\ \hline
+    5 & D & $\emptyset$,A,B,C,(A,C) \\ \hline
+    6 & (A,C) & $\emptyset$,B,D,(B,D) \\ \hline
+    7 & (B,D) & $\emptyset$,A,C,(A,C) \\ \hline
+    8 & (A,D) & $\emptyset$,B,C \\
+    \hline
+    \end{tabular}
+\end{center}
+
+Θα λύσουμε το πρόβλημα με χρήση δυναμικού προγραμματισμού.
+
 
 %}}}
 
-\vspace{3cm}
 
 %{{{ Χωρισμός Κειμένου σε Γραμμές
 \section{Χωρισμός Κειμένου σε Γραμμές}
-
+Test4
 %}}}
 
-\vspace{3cm}
 
 %{{{ Αντίγραφα Αρχείου
-\section{Αντίγραφα Αρχείου}
-
+\section{Αντίγραφα Αρχείου (KT 6.12)}
+Test5
 %}}}
 
-\vspace{3cm}
 
-%{{{ Έλεγχός Ταξινόμησης
-\section{Έλεγχος Ταξινόμησης}
-
-%}}}
-
-\vspace{3cm}
-
-%{{{ Bonus: Δρομολόγηση Εργασιών
-\section{Bonus: Δρομολόγηση Εργασιών}
-
+%{{{Bonus: Έλεγχός Ταξινόμησης
+\section{Bonus: Έλεγχος Ταξινόμησης}
+Bonus!
 %}}}
 
 \end{document}
