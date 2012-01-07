@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Sat Jan  7 04:28:16 2012
+ * Last Modified : Sat Jan  7 04:59:27 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -76,7 +76,7 @@ int binary_search(int *A, int val, int len)
  * == Longest Non-Decreasing Subsequence==
  * Returns the length of the longest non-decreasing subsequence.
  */
-int lis(int*a, int len)
+int lnds(int*a, int len)
 {
     int k,l,max, *M,res;
     M = (int*) calloc(len, sizeof(int));
@@ -135,6 +135,7 @@ int main()
 	}
     }
     ec++;
+    free (ends);
     /*
      * x[i] stores the index on newends array from the target of i
      * newends is sorted, so binsearch for the win!
@@ -142,13 +143,14 @@ int main()
     for (i = 0; i < N; i++)
     {
 	temp = (int*) bsearch(&move[i].end, newends, ec, sizeof(long int), compareB);
-	x[i] = ((int*) temp - (int*) newends)/2 +1; //div 2 to make it look pretty!
+	x[i] = ((int*) temp - (int*) newends);	// _._ BZZZT <STOMP>
+	//printf("X[%d] = %d\n", i, x[i]);
     }
     /*
      * Now the problem is reduced in finding the longest
      * NON-REDUCING subsequence of X[].
      * We use a modified version of LIS and we're done.
      */
-    printf("%d\n",lis(x,N));
+    printf("%d\n",lnds(x,N));
     return 0;
 }
