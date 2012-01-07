@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Sat Jan  7 03:59:46 2012
+ * Last Modified : Sat Jan  7 04:08:29 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -29,8 +29,10 @@ int *temp;
 tlist *move;
 
 /* Auxiliary functions for quicksort & bsearch */
-int compareA(const tlist *A, const tlist *B)
+int compareA(const void *AA, const void *BB)
 {
+    tlist *A = (tlist *) AA;
+    tlist *B = (tlist *) BB;
     if(A->start != B->start)
 	return( A->start - B->start);
     else
