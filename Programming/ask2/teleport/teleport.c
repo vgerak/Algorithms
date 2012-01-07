@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Sat Jan  7 04:17:33 2012
+ * Last Modified : Sat Jan  7 04:28:16 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -100,7 +100,7 @@ int lis(int*a, int len)
 int main()
 {
     long int a,b;
-    int i,j;
+    int i;
 
     scanf("%d", &N);
     move = (tlist *) calloc(N,sizeof(tlist));
@@ -150,6 +150,5 @@ int main()
      * We use a modified version of LIS and we're done.
      */
     printf("%d\n",lis(x,N));
-
     return 0;
 }
