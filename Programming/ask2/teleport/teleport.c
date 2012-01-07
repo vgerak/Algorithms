@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Sat Jan  7 04:08:29 2012
+ * Last Modified : Sat Jan  7 04:17:33 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -44,48 +44,11 @@ int compareB(const void *A, const void *B)
     return (*(long int*)A - *(long int*)B);
 }
 
-/* ================================= */
-
 /*
- * == Longest Non-Decreasing Subsequence v1==
- * Running, but O(n^2), will try for nlogk
- *
-
-int lis(int* a, int N)
-{
-    int *best, *prev, i, j, max = 0;
-    best = (int*) malloc ( sizeof( int ) * N );
-    prev = (int*) malloc ( sizeof( int ) * N );
-
-    for (i = 0; i < N; i++)
-    {
-	best[i] = 1;
-	prev[i] = i;
-    }
-
-    for (i = 1; i < N; i++)
-    {
-	for (j = 0; j < i; j++)
-	{
-	    if (a[i] >= a[j] && best[i] < best[j] + 1)
-	    {
-		best[i] = best[j] + 1;
-		prev[i] = j;
-	    }
-	}
-    }
-    for (i = 0; i < N; i++)
-	if (max < best[i])
-	    max = best[i];
-
-    free( best );
-    free( prev );
-
-    return max;
-}
-*/
-
-/* Custom binary search */
+ * Custom binary search
+ * that points to the index we will
+ * insert the value
+ */
 int binary_search(int *A, int val, int len)
 {
     int min, max, mid;
@@ -110,8 +73,8 @@ int binary_search(int *A, int val, int len)
 }
 
 /*
- * == Longest Non-Decreasing Subsequence v2==
- * Returns the length of the longest increasing subsequence.
+ * == Longest Non-Decreasing Subsequence==
+ * Returns the length of the longest non-decreasing subsequence.
  */
 int lis(int*a, int len)
 {
@@ -121,7 +84,6 @@ int lis(int*a, int len)
     for (k = 0; k < len; k++)
     {
 	res = binary_search(M, a[k], l);
-	//printf("res = %d, a[k] = %d\n",res, a[k]);
 	if (res != -1)
 	    M[res] = a[k];
 	else
@@ -153,12 +115,11 @@ int main()
 
     for (i = 0; i < N; i++)
     {
-	/* Read from input and sort to lefts and rights */
+	/* Read from input */
 	scanf("%ld %ld", &a, &b);
 	move[i].start = a;
 	move[i].end = b;
 	ends[i] = b;
-	//printf("Port # %d starts on %ld and ends on %ld \n", i, move[i].start, move[i].end);
     }
     qsort(move,N,sizeof(tlist),compareA);
     qsort(ends,N,sizeof(long int), compareB);
@@ -174,13 +135,6 @@ int main()
 	}
     }
     ec++;
-    /* Sort Testing
-       for(i = 0; i < N; i++)
-       printf("Move # %d starts on %ld and ends on %ld \n", i, move[i].start, move[i].end);
-       for(i = 0; i < ec; i++)
-       printf("Ending # %d is %ld \n", i, newends[i]);
-       */
-
     /*
      * x[i] stores the index on newends array from the target of i
      * newends is sorted, so binsearch for the win!
@@ -189,12 +143,11 @@ int main()
     {
 	temp = (int*) bsearch(&move[i].end, newends, ec, sizeof(long int), compareB);
 	x[i] = ((int*) temp - (int*) newends)/2 +1; //div 2 to make it look pretty!
-	//printf("X[%d] = %d\n", i, x[i]);
     }
     /*
-     * Now the problem is reduced in finding the longest NON-REDUCING
-     * subsequence of X[].
-     * We use a modified version of a well-known algorithm and we're done.
+     * Now the problem is reduced in finding the longest
+     * NON-REDUCING subsequence of X[].
+     * We use a modified version of LIS and we're done.
      */
     printf("%d\n",lis(x,N));
 
