@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Thu Jan  5 05:01:56 2012
+ * Last Modified : Sun Jan  8 17:46:33 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -16,53 +16,62 @@
 #include<stdlib.h>
 #include<math.h>
 
-struct shp{
-    int x;
-    int y;
-};
-typedef struct shp shops_s;
-shops_s *shop, *locA, *locB;
 
-unsigned int N, distA, distB, R, C;
-
-int M_D(shops_s A, shops_s B);     //The Manhattan distance
+int M_D(int x1, int y1, int x2, int y2)
+{
+    return abs(x1 - x2) + abs(y1 - y2);
+}
 
 int main()
 {
-    int i,j;
+    int i, j, k;
+    int cA, cB;
+    static int N, R, C;
+    int *x;	    // -arrays to keep
+    int *y;	    //coords of shops (startB = x,y[0])
+    int xA, yA;    // -coords of A
+    int ***DA;		    // -N*R*C array
 
-    distA = distB = 0;
-    scanf("%d", &N);
-    shop = (shops_s *) calloc(N,sizeof(shops_s));
-    locA = (shops_s *) malloc(sizeof(int));
-    locB = (shops_s *) malloc(sizeof(int));
-    if ((shop == NULL) || (locA == NULL) || (locB == NULL))
+    /* Read 2 lines from input and allocate memory */
+    scanf("%u %u %u", &N, &R, &C);
+    DA = (int ***) calloc(N + 1, sizeof(int **));
+    scanf("%u %u", &xA, &yA);
+    x = (int *) calloc(N + 1, sizeof(int));
+    y = (int *) calloc(N + 1, sizeof(int));
+    if ((DA == NULL) || (x == NULL) || (y == NULL))
     {
         printf("Out of memory\n");
         return -1;
     }
-    /* Read starting and shop locations */
-    scanf("%d %d", &locA->x, &locA->y);
-    scanf("%d %d", &locB->x, &locB->y);
 
-    for (i = 0; i < N; i++)
+    /* Read shop list */
+    for (i = 0; i <= N; i++)	// '<=' since we read B initial position aswell
     {
-        scanf("%d %d",&shop[i].x, &shop[i].y);
-        printf("shop # %d has X=%d, Y=%d\n",i, shop[i].x, shop[i].y);
+        scanf("%d %d",&x[i],&y[i]);
+        //printf("shop # %d has X=%u, Y=%u\n",i, x[i], y[i]);
+	DA[i] = (int **) calloc(R + 1, sizeof(int *));
+	for (j = 0; j <= R; j++)
+	    DA[i][j] = (int *) calloc(C + 1, sizeof(int));
     }
-    ///*
-    for (i = 1; i < N; i++)
-        printf("M_D of %d, %d is --  %d\n",i, i + 1, M_D(shop[i-1], shop[i]));
 
-
+    /* Reursion begins */
+    for (i = N - 1; i >= 0; i--)
+    {
+	for (j = R; j > 0; j--)
+	{
+	    for (k = 1; k <= C; k++)
+	    {
+		cA = M_D(x[i], y[i], x[i+1], y[i+1]) + DA[i+1][j][k];
+		cB = M_D(j, k, x[i+1], y[i+1]) + DA[i+1][x[i]][y[i]];
+		if (cA < cB)
+		    DA[i][j][k] = cA;
+		else
+		    DA[i][j][k] = cB;
+		//printf("DA[%d][%d][%d] = %d\n", i, j, k, DA[i][j][k]);
+	    }
+	}
+    }
+    printf("%d\n",DA[0][xA][yA]);
 
     return 0;
 }
-
-int M_D(shops_s A, shops_s B)
-{
-    int k;
-    k = abs(A.x - B.x) + abs(A.y - B.y);
-    return k;
-}
-

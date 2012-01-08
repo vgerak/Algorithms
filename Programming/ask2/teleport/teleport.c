@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Sat Jan  7 04:59:27 2012
+ * Last Modified : Sat Jan  7 05:48:02 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -34,9 +34,9 @@ int compareA(const void *AA, const void *BB)
     tlist *A = (tlist *) AA;
     tlist *B = (tlist *) BB;
     if(A->start != B->start)
-	return( A->start - B->start);
+	return(A->start - B->start);
     else
-	return( A->end - B->end);
+	return(A->end - B->end);
 }
 
 int compareB(const void *A, const void *B)
