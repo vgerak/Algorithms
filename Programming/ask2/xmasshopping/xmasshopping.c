@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Sun Jan  8 17:46:33 2012
+ * Last Modified : Sun Jan  8 17:58:01 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -29,26 +29,26 @@ int main()
     static int N, R, C;
     int *x;	    // -arrays to keep
     int *y;	    //coords of shops (startB = x,y[0])
-    int xA, yA;    // -coords of A
-    int ***DA;		    // -N*R*C array
+    int xA, yA;	    // -coords of A
+    int ***DA;	    // -N*R*C array
 
     /* Read 2 lines from input and allocate memory */
-    scanf("%u %u %u", &N, &R, &C);
+    scanf("%d %d %d", &N, &R, &C);
     DA = (int ***) calloc(N + 1, sizeof(int **));
-    scanf("%u %u", &xA, &yA);
+    scanf("%d %d", &xA, &yA);
     x = (int *) calloc(N + 1, sizeof(int));
     y = (int *) calloc(N + 1, sizeof(int));
     if ((DA == NULL) || (x == NULL) || (y == NULL))
     {
-        printf("Out of memory\n");
-        return -1;
+	printf("Out of memory\n");
+	return -1;
     }
 
     /* Read shop list */
     for (i = 0; i <= N; i++)	// '<=' since we read B initial position aswell
     {
-        scanf("%d %d",&x[i],&y[i]);
-        //printf("shop # %d has X=%u, Y=%u\n",i, x[i], y[i]);
+	scanf("%d %d",&x[i],&y[i]);
+	//printf("shop # %d has X=%d, Y=%d\n",i, x[i], y[i]);
 	DA[i] = (int **) calloc(R + 1, sizeof(int *));
 	for (j = 0; j <= R; j++)
 	    DA[i][j] = (int *) calloc(C + 1, sizeof(int));
