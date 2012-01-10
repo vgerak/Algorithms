@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Mon Jan  9 01:13:07 2012
+ * Last Modified : Mon Jan  9 13:34:06 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -17,6 +17,7 @@
 #include<math.h>
 
 /* Manhattan Distance */
+inline
 int M_D(int x1, int y1, int x2, int y2)
 {
     return abs(x1 - x2) + abs(y1 - y2);
@@ -49,14 +50,14 @@ int main()
     }
     for (j = 0; j <= R; j++)
     {
-        Curr[j] = (int *) calloc(C + 1, sizeof(int));
+        Curr[j] = (int *) malloc((C + 1)*sizeof(int));
         Prev[j] = (int *) calloc(C + 1, sizeof(int));
     }
 
     /* Recursion begins */
     for (i = N - 1; i >= 0; i--)
     {
-        for (j = R; j > 0; j--)
+        for (j = R; j >= 1; j--)
         {
             for (k = 1; k <= C; k++)
             {
