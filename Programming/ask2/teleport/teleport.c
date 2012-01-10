@@ -6,7 +6,7 @@
 
  * Creation Date : 20-12-2011
 
- * Last Modified : Sat Jan  7 05:48:02 2012
+ * Last Modified : Mon Jan  9 04:13:02 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -94,7 +94,6 @@ int lnds(int*a, int len)
     }
     return l;
 }
-
 
 
 int main()

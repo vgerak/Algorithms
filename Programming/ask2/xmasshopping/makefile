@@ -1,7 +1,7 @@
-CFLAGS=-O2
+CFLAGS=-O3
 all:	xmasshopping
 xmasshopping:	xmasshopping.c
-		gcc xmasshopping.c -o xmasshopping ${CCFLAGS}
+		gcc xmasshopping.c -o xmasshopping ${CFLAGS}
 clean:
 		rm xmasshopping
 tests:
