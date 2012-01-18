@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2011.11.14)  10 JAN 2012 07:22
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (TeX Live 2011) (format=xelatex 2011.11.14)  10 JAN 2012 07:31
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1071,19 +1071,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--108
 
 ]
 Font mapping `TeX-text.tec' for font `DejaVu Serif Bold' not found.
- [2]
-Overfull \hbox (25.24701pt too wide) in paragraph at lines 229--235
-\EU1/DejaVuSerif(0)/m/sc/10.95 Kunsoo (όπως δημοσιεύτηκαν στ
-ο paper []A linear-time algorithm for concave one-dimensional
- []
-
-[3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 268.
+ [2] [3]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 267.
  [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 268.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 267.
  (./ask2.aux (./title/title.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 268.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 268.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 267.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 267.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.

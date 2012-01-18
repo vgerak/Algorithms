@@ -1,0 +1,117 @@
+%{{{Header
+\documentclass[a4paper,11pt]{article}
+\usepackage{anysize}
+\marginsize{2cm}{2cm}{1cm}{1cm}
+%\textwidth 6.0in \textheight = 664pt
+\usepackage{xltxtra}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{xgreek}
+\usepackage{fancyvrb}
+\usepackage{minted}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+\usepackage{enumitem}
+\usepackage{framed}
+\usepackage{relsize}
+\usepackage{float}
+\setmainfont[Mapping=TeX-text]{DejaVu Serif}
+\newcommand{\tab}{\hspace*{3em}}
+
+%\setmainfont{Arial}
+%\setsansfont{FreeSans}
+%\setmonofont{FreeMono}
+\begin{document}
+%\def\thesubsection {\alph{subsection}}
+\renewcommand{\labelenumi}{\roman{enumi})}
+\renewcommand{\labelenumii}{ (\arabic{enumii}) }
+
+\include{title/title}
+%}}}
+
+%{{{ Προβολή ταινιών
+\section{Προβολή ταινιών} \setcounter{section}{1}
+Τεστ 1
+
+\begin{algorithm}[H]
+\caption{Άσκηση 1}
+\begin{algorithmic}[1]
+    \State Sort A on ascending order using $f_i$ as key
+\Procedure{RepresentantivesSelect}{$A, N$}
+    \If{$N = 0$}
+    \State \textbf{return} $Schedule$
+    \EndIf
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+%}}}
+
+%{{{ Μέτρηση συντομότερων μονοπατιών
+\section{Μέτρηση Συντομότερων Μονοπατιών}
+Τεστ 2
+
+\begin{algorithm}[H]
+\caption{Άσκηση 2}
+\begin{algorithmic}[1]
+    \State Sort A on ascending order using $v_i$ as key
+\Procedure{TimeSelect}{$A, N$}
+    \State $i \gets 1$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+Η πολυπλοκότητα του αλγορίθμου είναι $\Theta(n\log{n})$
+
+%}}}
+
+%{{{ Ελάχιστο Συνδετικό Δέντρο Υπό Περιορισμούς
+\section{Ελάχιστο Συνδετικό Δέντρο Υπό Περιορισμούς (DVP 5.24)}
+\subsection{Παράδειγμα}
+Τεστ 3 α
+
+\subsection{Αλγόριθμος}
+Τεστ 3 β
+
+\begin{algorithm}[H]
+\caption{Άσκηση 3}
+\begin{algorithmic}[1]
+\Procedure{OptimalPebbling}{$Val, N$}
+	\State $P[0][i] \gets 0$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+Η χρονική πολυπλοκότητα του αλγορίθμου είναι: $\Theta{N}$
+
+%}}}
+
+%{{{ Μοναδικότιτα Ελάχιστου Συνδετικού Δέντρου
+\section{Μοναδικότητα Ελάχιστου Συνδετικού Δέντρου}
+\subsection{}
+α
+\subsection{}
+β
+\subsection{Συνθήκη}
+γ
+\subsection{Αλγόριθμος}
+δ
+
+%}}}
+
+%{{{ Υπολογισμός ελάχιστου συνδετικού δέντρου με διαγραφή ακμών
+\section{Υπολογισμός Ελάχιστου Συνδετικού Δέντρου με Διαγραφή Ακμών}
+\subsection{Αλγόριθμος}
+α
+\subsection{Αλγόριθμος}
+β
+\subsection{Αλγόριθμος}
+γ
+
+%}}}
+
+\end{document}
