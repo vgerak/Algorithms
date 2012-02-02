@@ -6,7 +6,7 @@
 
  * Creation Date : 18-01-2012
 
- * Last Modified : Thu Feb  2 01:56:51 2012
+ * Last Modified : Thu Feb  2 02:16:28 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -45,7 +45,8 @@ void makenode(node_t *n1)
     (*n1).next = NULL;
 }
 
-void unify(node_t *n1, node_t *n2) {
+void unify(node_t *n1, node_t *n2)
+{
     n1 = (*n1).root;
     n2 = (*n2).root;
     (*n2).root = n1;
@@ -57,33 +58,36 @@ void unify(node_t *n1, node_t *n2) {
     }
 }
 
-int findset(node_t *n1, node_t *n2) {
+int findset(node_t *n1, node_t *n2)
+{
     if ((*n1).root == (*n2).root)
         return 1;
     else
         return 0;
 }
 
-int compare(const void *a, const void *b) {
+int compare(const void *a, const void *b)
+{
     if ((*(edge_t *) a).cost > (*(edge_t *) b).cost)
         return 1;
     else
         return -1;
 }
 
-unsigned int mst(unsigned int usede) {
+unsigned int mst(unsigned int used_e)
+{
     unsigned int i, cost, num;
     cost = 0;
     num = 0;
     for (i = 0; i < E; ++i)
     {
-        //printf("i = %u\n", i);
+        printf("i = %u\n", i);
         if (num < V - 1)
         {
-            if (findset(edges[i].n1, edges[i].n2) == 0 && (i + 1) != usede)
+            if (findset(edges[i].n1, edges[i].n2) == 0 && (i + 1) != used_e)
             {
                 unify(edges[i].n1, edges[i].n2);
-                if (usede == 0)
+                if (used_e == 0)
                 {
                     edges[i].used = 1;
                 }
@@ -98,11 +102,13 @@ unsigned int mst(unsigned int usede) {
     return cost;
 }
 
-unsigned int sec_mst(unsigned int cost1, unsigned int j) {
+unsigned int sec_mst(unsigned int cost1, unsigned int j)
+{
     unsigned int i, min, c, k, num;
     min = cost1;
     for (i = j + 1; i > 0; --i)
     {
+        printf("  i' = %u\n", i);
         if (edges[i - 1].used == 1)
         {
             num = 0;
