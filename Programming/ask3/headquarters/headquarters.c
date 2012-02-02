@@ -6,7 +6,7 @@
 
 * Creation Date : 18-01-2012
 
-* Last Modified : Wed Feb  1 23:50:09 2012
+* Last Modified : Thu Feb  2 10:53:43 2012
 
 * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -16,32 +16,40 @@ _._._._._._._._._._._._._._._._._._._._._.*/
 #include<stdio.h>
 #include<stdlib.h>
 
-static int k, v, e, s, t;
-int **M;
+static unsigned int k, V, E, s, t;
+unsigned int **Curr;
+unsigned int **Prev;
+unsigned int **temp;
+
+
+unsigned int **M_mult (**A)
+{
+
+}
 
 int main()
 {
-    int i, j, a, b;
+    unsigned int i, j, a, b;
     long long int res;
 
     /* Read graph info and data from input, allocate memory */
-    scanf("%d %d %d %d %d", &k, &v, &e, &s, &t);
-    M = (int **) calloc(v, sizeof(int *));      //1 extra row/column to have exact numbers.
-    for (i = 0; i <= v; ++i)
-        M[i]= (int *) calloc(v, sizeof(int));
+    scanf("%u %u %u %u %u", &k, &V, &E, &s, &t);
+    M = (unsigned int **) calloc(V, sizeof(unsigned int *));
+    for (i = 0; i <= V; ++i)
+        M[i]= (unsigned int *) calloc(V, sizeof(unsigned int));
     for (i = 0; i < e; ++i)
     {
-        scanf("%d %d", &a, &b);
+        scanf("%u %u", &a, &b);
         M[a - 1][b - 1] = 1;
     }
     ///* Input reading check
     for (i = 0; i < v; ++i)
     {
-        printf("Node %d leads to:\n", i + 1);
+        printf("Node %u leads to:\n", i + 1);
         for (j = 0; j < v; ++j)
         {
             if (M[i][j] == 1)
-                printf("%d, ", j + 1);
+                printf("%u, ", j + 1);
         }
         printf("\n");
     }

@@ -6,7 +6,7 @@
 
  * Creation Date : 18-01-2012
 
- * Last Modified : Thu Feb  2 12:10:39 2012
+ * Last Modified : Thu Feb  2 02:16:28 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -16,51 +16,54 @@
 #include <stdlib.h>
 
 unsigned int V, E;  //Vertices and Edges are global
-long unsigned int res1, res2;
 
 typedef struct node_t node_t;
 typedef struct edge_t edge_t;
 
 struct edge_t {
-    unsigned int n1;
-    unsigned int n2;
+    node_t *n1;
+    node_t *n2;
     unsigned int cost;
-    unsigned short int used;
+    unsigned int used;
 };
 
+struct node_t {
+    node_t *parent;
+    node_t *root;
+    node_t *next;
+    node_t *last;
+};
 
-unsigned int *nodes;
-unsigned int *parent;
-unsigned int **costs;
+node_t *nodes;
 edge_t *edges;
 
 unsigned int last_i;
 
-void unify(int n1, int n2)
+void makenode(node_t *n1)
 {
-    parent[find(n1)] = n2;
+    (*n1).last = (*n1).parent = (*n1).root = n1;
+    (*n1).next = NULL;
 }
 
-int find(int n)
+void unify(node_t *n1, node_t *n2)
 {
-    if (n == parent[n])
-        return n;
-    else
-        return parent[n] = find(parent[n]);
+    n1 = (*n1).root;
+    n2 = (*n2).root;
+    (*n2).root = n1;
+    (*n2).parent = (*n1).last;
+    (*(*n1).last).next = n2;
+    while ((*n2).next != NULL) {
+        n2 = (*n2).next;
+        (*n2).root = n1;
+    }
 }
 
-int findset(long unsigned int n1, long unsigned int n2)
+int findset(node_t *n1, node_t *n2)
 {
-    if (find(n1) == find(n2))
-    {
-        //printf("%lu, %lu -> same set\n", n1, n2);
+    if ((*n1).root == (*n2).root)
         return 1;
-    }
     else
-    {
-        //printf("%lu, %lu -> different set\n", n1, n2);
         return 0;
-    }
 }
 
 int compare(const void *a, const void *b)
@@ -71,15 +74,14 @@ int compare(const void *a, const void *b)
         return -1;
 }
 
-long unsigned int mst(long unsigned int used_e)
+unsigned int mst(unsigned int used_e)
 {
-    long unsigned int cost;
-    unsigned int i, num;
+    unsigned int i, cost, num;
     cost = 0;
     num = 0;
     for (i = 0; i < E; ++i)
     {
-        //printf("i = %lu\n", i);
+        printf("i = %u\n", i);
         if (num < V - 1)
         {
             if (findset(edges[i].n1, edges[i].n2) == 0 && (i + 1) != used_e)
@@ -89,7 +91,6 @@ long unsigned int mst(long unsigned int used_e)
                 {
                     edges[i].used = 1;
                 }
-                //printf("%lu %lu weight: +%lu\n", edges[i].n1, edges[i].n2, edges[i].cost);
                 cost += edges[i].cost;
                 num++ ;
                 last_i = i;
@@ -97,26 +98,25 @@ long unsigned int mst(long unsigned int used_e)
         }
         else break;
     }
-    //printf("cost = %lu\n", cost);
+    printf("cost = %u\n", cost);
     return cost;
 }
 
-long unsigned int sec_mst(long unsigned int cost1, long unsigned int j)
+unsigned int sec_mst(unsigned int cost1, unsigned int j)
 {
-    long unsigned int min, c;
-    unsigned int i, k;
+    unsigned int i, min, c, k, num;
     min = cost1;
     for (i = j + 1; i > 0; --i)
     {
-        //printf("  i' = %lu\n", i);
+        printf("  i' = %u\n", i);
         if (edges[i - 1].used == 1)
         {
+            num = 0;
             for (k = 0; k < V ; ++k)
-            {
-                //c = mst(i);
-                if (min == cost1 || min > c)
-                    min = c;
-            }
+                makenode(&nodes[k]);
+            c = mst(i);
+            if (min == cost1 || min > c)
+                min = c;
         }
     }
     return min;
@@ -124,29 +124,25 @@ long unsigned int sec_mst(long unsigned int cost1, long unsigned int j)
 
 int main()
 {
-    unsigned int i, j, k;
+    unsigned int i, j, k, res1, res2;
     scanf("%u %u\n", &V, &E);
-    parent = (unsigned int*) calloc(V + 1, sizeof(unsigned int));
-    *costs = (unsigned int**) calloc(V + 1, sizeof(unsigned int *));
-    for (i = 0; i <= V; ++i)
-        *costs = (unsigned int*) calloc(V + 1, sizeof(unsigned int));
+    nodes = calloc(V, sizeof(node_t));
     edges = calloc(E, sizeof(edge_t));
     for (i = 0; i < E; ++i)
     {
         scanf("%u %u %u\n", &j, &k, &edges[i].cost);
-        edges[i].n1 = j;
-        edges[i].n2 = k;
+        edges[i].n1 = &nodes[j - 1];
+        edges[i].n2 = &nodes[k - 1];
+        makenode(edges[i].n1);
+        makenode(edges[i].n2);
     }
-    for (i = 1; i <= V; ++i)
-        parent[i] = i;
-
     qsort(edges, E, sizeof(edge_t), compare);
 
     res1 = mst(0);
-    printf("FOUND MST: %lu\n", res1);
+    printf("FOUND MST: %u\n", res1);
     res2 = sec_mst(res1, last_i);
 
-    printf("%lu %lu\n", res1, res2);
+    printf("%u %u\n", res1, res2);
 
     return 0;
 }
