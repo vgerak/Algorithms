@@ -6,7 +6,7 @@
 
  * Creation Date : 18-01-2012
 
- * Last Modified : Thu Feb  2 22:13:21 2012
+ * Last Modified : Thu Feb  2 22:35:11 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -59,9 +59,9 @@ int compare(const void *a, const void *b)
 
 /*
  * - Implementation of Kruskal's Algorithm for MST -
- *  We are using Union-Find to calculate it and we
- *  are keeping the cost of the heaviest edge in
- *  each tree, to keep data for 2nd-MST.
+ *  Using Union-Find to calculate it and keeping the
+ *  cost of the heaviest edge in each tree,
+ *  to have the data ready for 2nd-MST.
  */
 long unsigned int mst()
 {
@@ -81,6 +81,8 @@ long unsigned int mst()
                 //printf("%u now has %u as father!\n", edges[i].n1 + 1, edges[i].n2 + 1);
                 if (parents[edges[i].n1][1] < edges[i].cost)
                     parents[edges[i].n1][1] = edges[i].cost;
+                if (parents[edges[i].n1][1] < parents[edges[i].n2][1])
+                    parents[edges[i].n1][1] = parents[edges[i].n2][1];
                 else
                     parents[edges[i].n2][1] = parents[edges[i].n1][1];
                 edges[i].used = 1;
@@ -93,17 +95,9 @@ long unsigned int mst()
     return cost;
 }
 
-unsigned int findmax(unsigned int a, unsigned int b)
-{
-    unsigned int max = a;
-    if (max < b)
-        max = b;
-    return max;
-}
-
 long unsigned int sec_mst()
 {
-    unsigned int min, temp, i;
+    unsigned int min, max, i;
     min = -1;
     for ( i = 1; i < E; ++i)
     {
@@ -111,10 +105,13 @@ long unsigned int sec_mst()
         if (edges[i].used == 0)
         {
             //printf("min! %u\n", min);
-            temp = findmax(parents[edges[i].n1][1], parents[edges[i].n2][1]);
+            if (parents[edges[i].n1][1] > parents[edges[i].n2][1])
+                max = parents[edges[i].n1][1];
+            else
+                max = parents[edges[i].n2][1];
             //printf("Extra w of edge %u is %u\n", i, edges[i].cost - temp);
-            if (edges[i].cost - temp < min)
-                min = edges[i].cost - temp;
+            if (edges[i].cost - max < min)
+                min = edges[i].cost - max;
         }
     }
     return (res1 + min);
@@ -149,4 +146,3 @@ int main()
     printf("%lu %lu\n", res1, res2);
     return 0;
 }
-
