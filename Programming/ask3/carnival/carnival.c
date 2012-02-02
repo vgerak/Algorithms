@@ -6,7 +6,7 @@
 
  * Creation Date : 18-01-2012
 
- * Last Modified : Thu Feb  2 12:10:39 2012
+ * Last Modified : Thu Feb  2 16:09:30 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -29,24 +29,30 @@ struct edge_t {
 };
 
 
-unsigned int *nodes;
-unsigned int *parent;
-unsigned int **costs;
+//unsigned int *nodes;
+unsigned int **parents;
 edge_t *edges;
 
 unsigned int last_i;
 
-void unify(int n1, int n2)
+void unify(unsigned int n1, unsigned int n2, unsigned int c)
 {
-    parent[find(n1)] = n2;
+    unsigned int tempn = n1;
+    parents[find(n1)][0] = n2;
+    parents[n1][1] += c;
+    while (parents[tempn][1] != 0)
+    {
+        parents[n1][1] += parents[tempn][1];
+    }
+    parents[n1][1] += c;
 }
 
 int find(int n)
 {
-    if (n == parent[n])
+    if (n == parents[n][0])
         return n;
     else
-        return parent[n] = find(parent[n]);
+        return parents[n][0] = find(parents[n][0]);
 }
 
 int findset(long unsigned int n1, long unsigned int n2)
@@ -71,7 +77,7 @@ int compare(const void *a, const void *b)
         return -1;
 }
 
-long unsigned int mst(long unsigned int used_e)
+long unsigned int mst()
 {
     long unsigned int cost;
     unsigned int i, num;
@@ -82,14 +88,17 @@ long unsigned int mst(long unsigned int used_e)
         //printf("i = %lu\n", i);
         if (num < V - 1)
         {
-            if (findset(edges[i].n1, edges[i].n2) == 0 && (i + 1) != used_e)
+            if (findset(edges[i].n1, edges[i].n2) == 0)
             {
-                unify(edges[i].n1, edges[i].n2);
-                if (used_e == 0)
-                {
-                    edges[i].used = 1;
-                }
-                //printf("%lu %lu weight: +%lu\n", edges[i].n1, edges[i].n2, edges[i].cost);
+                unify(edges[i].n1, edges[i].n2, edges[i].cost);
+                if (parents[edges[i].n1][0] != edges[i].n1)
+                    parents[edges[i].n1][2] = edges[i].n2;
+                else
+                    parents[edges[i].n2][2] = edges[i].n1;
+                //printf("%u now has %u as father!\n", edges[i].n1 + 1, edges[i].n2 + 1);
+                edges[i].used = 1;
+                //printf(">>> ADDED EDGE %u\n", i);
+                //printf("%u %u weight: %u\n", edges[i].n1 + 1, edges[i].n2 + 1, edges[i].cost);
                 cost += edges[i].cost;
                 num++ ;
                 last_i = i;
@@ -101,50 +110,71 @@ long unsigned int mst(long unsigned int used_e)
     return cost;
 }
 
-long unsigned int sec_mst(long unsigned int cost1, long unsigned int j)
+unsigned int findmax(unsigned int e)
 {
-    long unsigned int min, c;
-    unsigned int i, k;
-    min = cost1;
-    for (i = j + 1; i > 0; --i)
+    unsigned int i;
+    unsigned int max = 0;
+    i = edges[e].n1;
+    while (parents[i][1] != 0)
     {
-        //printf("  i' = %lu\n", i);
-        if (edges[i - 1].used == 1)
-        {
-            for (k = 0; k < V ; ++k)
-            {
-                //c = mst(i);
-                if (min == cost1 || min > c)
-                    min = c;
-            }
-        }
+        if (parents[i][1] > max)
+            max = parents[i][1];
+        i = parents[i][2];
     }
-    return min;
+    i = edges[e].n2;
+    while (parents[i][1] != 0)
+    {
+        if (parents[i][1] > max)
+            max = parents[i][1];
+        i = parents[i][2];
+    }
+    return max;
+}
+
+long unsigned int sec_mst()
+{
+    unsigned int min, test, i;
+    min = findmax(0);
+    for ( i = 0; i < E; ++i)
+    {
+        if (edges[i].used == 0)
+        {
+            test = findmax(i);
+            if (test != 0)
+                printf("res of edge %u is %u\n", i, test);
+        }
+        if ((test != 0) && (test < min))
+            min = test;
+    }
+    return (res1 + min);
 }
 
 int main()
 {
     unsigned int i, j, k;
     scanf("%u %u\n", &V, &E);
-    parent = (unsigned int*) calloc(V + 1, sizeof(unsigned int));
-    *costs = (unsigned int**) calloc(V + 1, sizeof(unsigned int *));
+    parents = (unsigned int**) calloc(V, sizeof(unsigned int*));
     for (i = 0; i <= V; ++i)
-        *costs = (unsigned int*) calloc(V + 1, sizeof(unsigned int));
+    {
+        parents[i] = (unsigned int*) calloc(3, sizeof(unsigned int));
+    }
     edges = calloc(E, sizeof(edge_t));
     for (i = 0; i < E; ++i)
     {
         scanf("%u %u %u\n", &j, &k, &edges[i].cost);
-        edges[i].n1 = j;
-        edges[i].n2 = k;
+        edges[i].n1 = j - 1;
+        edges[i].n2 = k - 1;
     }
-    for (i = 1; i <= V; ++i)
-        parent[i] = i;
+    for (i = 0; i < V; ++i)
+        parents[i][0] = parents[i][2] = i;
 
     qsort(edges, E, sizeof(edge_t), compare);
 
-    res1 = mst(0);
+    res1 = mst();
     printf("FOUND MST: %lu\n", res1);
-    res2 = sec_mst(res1, last_i);
+    res2 = sec_mst();
+    //for (i = 0; i < V; ++i)
+        //printf("V %u: Father %u - Weight %u\n", i + 1, parents[i][2] + 1, parents[i][1]);
 
     printf("%lu %lu\n", res1, res2);
 
