@@ -6,7 +6,7 @@
 
  * Creation Date : 18-01-2012
 
- * Last Modified : Thu Feb  2 16:09:30 2012
+ * Last Modified : Thu Feb  2 16:48:54 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -39,7 +39,7 @@ void unify(unsigned int n1, unsigned int n2, unsigned int c)
 {
     unsigned int tempn = n1;
     parents[find(n1)][0] = n2;
-    parents[n1][1] += c;
+    parents[n1][1] = c;
     while (parents[tempn][1] != 0)
     {
         parents[n1][1] += parents[tempn][1];
@@ -71,10 +71,7 @@ int findset(long unsigned int n1, long unsigned int n2)
 
 int compare(const void *a, const void *b)
 {
-    if ((*(edge_t *) a).cost > (*(edge_t *) b).cost)
-        return 1;
-    else
-        return -1;
+    return ((*(edge_t *) a).cost - (*(edge_t *) b).cost);
 }
 
 long unsigned int mst()
@@ -95,7 +92,7 @@ long unsigned int mst()
                     parents[edges[i].n1][2] = edges[i].n2;
                 else
                     parents[edges[i].n2][2] = edges[i].n1;
-                //printf("%u now has %u as father!\n", edges[i].n1 + 1, edges[i].n2 + 1);
+                printf("%u now has %u as father!\n", edges[i].n1 + 1, edges[i].n2 + 1);
                 edges[i].used = 1;
                 //printf(">>> ADDED EDGE %u\n", i);
                 //printf("%u %u weight: %u\n", edges[i].n1 + 1, edges[i].n2 + 1, edges[i].cost);
@@ -173,8 +170,8 @@ int main()
     res1 = mst();
     printf("FOUND MST: %lu\n", res1);
     res2 = sec_mst();
-    //for (i = 0; i < V; ++i)
-        //printf("V %u: Father %u - Weight %u\n", i + 1, parents[i][2] + 1, parents[i][1]);
+    for (i = 0; i < V; ++i)
+        printf("V %u: Father %u - Weight %u\n", i + 1, parents[i][2] + 1, parents[i][1]);
 
     printf("%lu %lu\n", res1, res2);
 

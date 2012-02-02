@@ -6,7 +6,7 @@
 
 * Creation Date : 18-01-2012
 
-* Last Modified : Thu Feb  2 10:53:43 2012
+* Last Modified : Thu Feb  2 17:16:22 2012
 
 * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -20,10 +20,12 @@ static unsigned int k, V, E, s, t;
 unsigned int **Curr;
 unsigned int **Prev;
 unsigned int **temp;
+unsigned int **M;
 
 
 unsigned int **M_mult (**A)
 {
+
 
 }
 
@@ -55,7 +57,6 @@ int main()
     }
     //*/
 
-
-    //printf("%lld\n", res);
+    printf("%lld\n", Curr[s - 1][t - 1]);
     return 0;
 }
