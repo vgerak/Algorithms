@@ -6,7 +6,7 @@
 
  * Creation Date : 18-01-2012
 
- * Last Modified : Fri Feb  3 00:26:48 2012
+ * Last Modified : Fri Feb  3 02:12:36 2012
 
  * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
@@ -17,8 +17,10 @@
 
 /* Global variable Declaration */
 unsigned int V, E;
-long unsigned int res1, res2;
+long long unsigned int res1, res2;
 unsigned int **parents;
+unsigned int *edge_w;
+unsigned int pathmax;
 
 typedef struct edge_t edge_t;
 struct edge_t {
@@ -32,20 +34,23 @@ edge_t *edges;
 /* Union - Find functions */
 void unify(unsigned int n1, unsigned int n2)
 {
-    parents[find(n1)][0] = n2;
+    parents[find(n1)][0] = find(n2);
 }
 
-int find(int n)
+int find(int n, int max)
 {
+
     if (n == parents[n][0])
         return n;
     else
-        return parents[n][0] = find(parents[n][0]);
+        if (parents[n][1] > max)
+            pathmax = parents[n][1];
+    return find(parents[n][0], pathmax);
 }
 
 int findset(long unsigned int n1, long unsigned int n2)
 {
-    if (find(n1) == find(n2))
+    if (find(n1, 0) == find(n2, 0))
         return 1;
     else
         return 0;
@@ -63,9 +68,9 @@ int compare(const void *a, const void *b)
  *  cost of the heaviest edge in each tree,
  *  to have the data ready for 2nd-MST.
  */
-long unsigned int mst()
+long long unsigned int mst()
 {
-    long unsigned int cost;
+    long long unsigned int cost;
     unsigned int i, num;
 
     qsort(edges, E, sizeof(edge_t), compare);   //Sort edges by ascending weight
@@ -78,13 +83,11 @@ long unsigned int mst()
             if (findset(edges[i].n1, edges[i].n2) == 0)
             {
                 unify(edges[i].n1, edges[i].n2);
-                //printf("%u now has %u as father!\n", edges[i].n1 + 1, edges[i].n2 + 1);
-                if (parents[edges[i].n1][1] < edges[i].cost)
-                    parents[edges[i].n1][1] = edges[i].cost;
-                if (parents[edges[i].n1][1] < parents[edges[i].n2][1])
-                    parents[edges[i].n1][1] = parents[edges[i].n2][1];
-                else
-                    parents[edges[i].n2][1] = parents[edges[i].n1][1];
+                printf("%u now has %u as father!\n", edges[i].n1 + 1, edges[i].n2 + 1);
+                parents[edges[i].n1][1] = edges[i].cost;
+                pathmax = edges[i].cost;
+                find(edges[i].n1, edges[i].cost);
+                edge_w[i] = pathmax;
                 edges[i].used = 1;
                 cost += edges[i].cost;
                 num++ ;
@@ -95,22 +98,16 @@ long unsigned int mst()
     return cost;
 }
 
-long unsigned int sec_mst()
+long long unsigned int sec_mst()
 {
     unsigned int min, max, i;
     min = -1;
-    for ( i = 1; i < E; ++i)
+    for ( i = 0; i < E; ++i)
     {
         //printf("%u\n", i);
         if (edges[i].used == 0)
         {
-            //printf("min! %u\n", min);
-            if (parents[edges[i].n1][1] > parents[edges[i].n2][1])
-                max = parents[edges[i].n1][1];
-            else
-                max = parents[edges[i].n2][1];
-            //printf("Extra w of edge %u is %u\n", i, edges[i].cost - temp);
-            if (edges[i].cost - max < min)
+            if (edges[i].cost - edge_w[i] < min)
                 min = edges[i].cost - max;
         }
     }
@@ -125,7 +122,8 @@ int main()
     parents = (unsigned int**) calloc(V, sizeof(unsigned int*));
     for (i = 0; i <= V; ++i)
         parents[i] = (unsigned int*) calloc(2, sizeof(unsigned int));
-    edges = calloc(E, sizeof(edge_t));
+    edges = (edge_t *) calloc(E, sizeof(edge_t));
+    edge_w = (unsigned int*) calloc(E, sizeof(unsigned int));
     for (i = 0; i < E; ++i)
     {
         scanf("%u %u %u\n", &j, &k, &edges[i].cost);
@@ -137,12 +135,8 @@ int main()
 
     res1 = mst();
     //printf("FOUND MST: %lu\n", res1);
-    for (i = 0; i < V; ++i)
-    {
-        //printf("# %u has weight %u\n", i, parents[i][1]);
-    }
     res2 = sec_mst();
 
-    printf("%lu %lu\n", res1, res2);
+    printf("%llu %llu\n", res1, res2);
     return 0;
 }

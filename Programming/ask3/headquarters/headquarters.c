@@ -1,62 +1,88 @@
 /* -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 
-* File Name : carnival.c
+ * File Name : carnival.c
 
-* Purpose : 3rd exercise in Algorithms
+ * Purpose : 3rd exercise in Algorithms
 
-* Creation Date : 18-01-2012
+ * Creation Date : 18-01-2012
 
-* Last Modified : Thu Feb  2 17:16:22 2012
+ * Last Modified : Fri Feb  3 04:43:09 2012
 
-* Created By : Vasilis Gerakaris <vgerak@gmail.com>
+ * Created By : Vasilis Gerakaris <vgerak@gmail.com>
 
-_._._._._._._._._._._._._._._._._._._._._.*/
-
+ _._._._._._._._._._._._._._._._._._._._._.*/
 
 #include<stdio.h>
 #include<stdlib.h>
+#define LIMIT 100000007
 
-static unsigned int k, V, E, s, t;
-unsigned int **Curr;
-unsigned int **Prev;
-unsigned int **temp;
-unsigned int **M;
+/* Global variable Declaration */
+static unsigned int k, V, E;
+unsigned long long int **M;
 
-
-unsigned int **M_mult (**A)
+void M_mult (unsigned long long int **a, unsigned long long int **b, unsigned long long int **c)
 {
-
-
+    unsigned int i, j, k;
+    unsigned long long int sum;
+    for (i = 0; i < V; ++i)
+    {
+        for (j = 0; j < V; ++j)
+        {
+            sum = 0;
+            for(k = 0; k < V; ++k)
+            {
+                sum += a[i][k] * b[k][j];
+            }
+            c[i][j] = sum % LIMIT;
+        }
+    }
 }
 
 int main()
 {
-    unsigned int i, j, a, b;
+    unsigned int i, j, a, b, u;
+    static unsigned int s, t;       //Start and End node
     long long int res;
-
+    unsigned long long int **A;
+    unsigned long long int **B;
+    unsigned long long int **temp;  //used for swaps
+    int flag;        //binary representation of k-1
     /* Read graph info and data from input, allocate memory */
     scanf("%u %u %u %u %u", &k, &V, &E, &s, &t);
-    M = (unsigned int **) calloc(V, sizeof(unsigned int *));
-    for (i = 0; i <= V; ++i)
-        M[i]= (unsigned int *) calloc(V, sizeof(unsigned int));
-    for (i = 0; i < e; ++i)
+    k --;
+    M = (unsigned long long int **) calloc(V, sizeof(unsigned long long int *));
+    A = (unsigned long long int **) calloc(V, sizeof(unsigned long long int *));
+    B = (unsigned long long int **) calloc(V, sizeof(unsigned long long int *));
+    for (i = 0; i < V; ++i)
+    {
+        M[i]= (unsigned long long int *) calloc(V, sizeof(unsigned long long int));
+        A[i]= (unsigned long long int *) calloc(V, sizeof(unsigned long long int));
+        B[i]= (unsigned long long int *) calloc(V, sizeof(unsigned long long int));
+        B[i][i] = 1;
+    }
+    for (i = 0; i < E; ++i)
     {
         scanf("%u %u", &a, &b);
         M[a - 1][b - 1] = 1;
     }
-    ///* Input reading check
-    for (i = 0; i < v; ++i)
+    for (i = 0, j = 0; i < 32; ++i)
     {
-        printf("Node %u leads to:\n", i + 1);
-        for (j = 0; j < v; ++j)
+        flag = ( k & ( 1 << i ) ) >> i;
+        if (flag == 1)
         {
-            if (M[i][j] == 1)
-                printf("%u, ", j + 1);
+            for (; j < i; ++j)
+            {
+                M_mult(M, M, A);
+                temp = A;
+                A = M;
+                M = temp;
+            }
+            M_mult(B, M, A);
+            temp = A;
+            A = B;
+            B = temp;
         }
-        printf("\n");
     }
-    //*/
-
-    printf("%lld\n", Curr[s - 1][t - 1]);
+    printf("%llu\n", B[s - 1][t - 1]);
     return 0;
 }
