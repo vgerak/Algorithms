@@ -39,16 +39,47 @@
 \section{Παιχνίδι Επιλογής Ακμών σε Κατευθυνόμενο Ακυκλικό Γράφημα} \setcounter{section}{1}
 FILL ME 1!
 
-Η υπολογιστική πολυπλοκότητα της μεθόδου μας είναι $\Theta(k + n + n) =
-O(k + n)$
-
 %}}}
 
 %{{{ 2) Σχεδιασμός Ταξιδιού (DPV 4.13)
 \section{Σχεδιασμός Ταξιδιού (DPV 4.13)}
-FILL ME 2!
+\begin{enumerate}
+\item Μία τέτοια διαδρομή είναι εφικτό να βρεθεί (ή να αποδειχτεί η μη ύπαρξή
+της) σε γραμμικό χρόνο. Κάνοντας ένα BFS στο γράφημα απορρίπτωντας κάθε ακμή η
+οποία έχει βάρος $w > L$ βρίσκουμε μία τέτοια διαδρομή, αν υπάρχει σε χρόνο
+$O(|E| + |V|)$.
+\item Για να υπολογίσουμε την ελάχιστη αυτονομία θα χρησιμοποιήσουμε μια
+τροποποιημένη μορφή του αλγορίθμου του Dikjstra. Όπως ο Dijkstra κρατάει ώς
+δεδομένο την ελάχιστη απόσταση ώς ένα κόμβο και "αναπτύσσει" τον κόμβο με τη
+λιγότερη απόσταση, εδώ θα κρατάμε ώς δεδομένο την ελάχιστη αυτονομία καυσίμου
+(το ελάχιστο από τα μέγιστα βάρη ακμών) για να φτάσουμε σε ένα κόμβο και θα
+συνεχίζουμε την αναζήτηση από τον κόμβο με τη μικρότερη τιμή. Δηλαδή:
+\begin{algorithm}[H]
+\caption{Minimum tank capacity}
+\begin{algorithmic}[1]
+\Procedure{minCapacity}{$(G(V,E,w)s,t)$}
+    \For{\textbf{all} $u \in V$}
+	    \State $D[u] \gets \infty$
+	\EndFor
+	\State $D[s] \gets 0 ; S \gets \emptyset$
+	\While {$|S| < |V|$}
+	    \State $u \notin S : D[u] = min_{v \notin S}\{D[v]\}$
+		\State $S \gets S \cup \{u\}$
+	\EndWhile
+    \For{\textbf{all} $v \in AdjList[u]$}
+		\If {$D[v] > max(D[u], w[u,v])$}
+			\State $D[v] \gets max(D[u], w[u,v])$
+		\EndIf
+	\EndFor
+	\State \textbf{return} D[t]
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
 
-Η πολυπλοκότητα του αλγορίθμου είναι $\Theta(m + n)$, αφού υλοποιεί ένα BFS.
+Ο αλγόριθμος αυτός έχει πολυπλοκότητα $O(ElogV)$ (με binary heaps) ή $O(E +
+VlogV)$ (με fibonacci heaps), όσο η εκτέλεση του αλγορίθμου του Dijkstra
+\end{enumerate}
+
 
 %}}}
 
@@ -70,9 +101,9 @@ FILL ME 4!
 Dense fill!
 \subsection{Μακρύ μονοπάτι}
 Μακρύ indeed!
-\subsection{Feedbac Vertex Set - Directed}
+\subsection{Feedback Vertex Set - Directed}
 directed!
-\subsection{Feedbac Vertex Set - Undirected}
+\subsection{Feedback Vertex Set - Undirected}
 undirected!
 
 %}}}
