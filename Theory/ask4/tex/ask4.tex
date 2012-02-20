@@ -37,7 +37,49 @@
 
 %{{{ 1) Παιχνίδι Επιλογής Ακμών σε Κατευθυνόμενο Ακυκλικό Γράφημα
 \section{Παιχνίδι Επιλογής Ακμών σε Κατευθυνόμενο Ακυκλικό Γράφημα} \setcounter{section}{1}
-FILL ME 1!
+
+Αρχικά, φτιάχνουμε την τοπολογική διάταξη του DAG με χρήση DFS και δίνουμε
+στους κόμβους αρχική τιμή 0, σε χρόνο $O(|V| + |E|)$. \emph{(0 = Lose
+condition για τον Α, 1 = win condition)}. Αρχίζοντας από το τέλος του DAG και
+πηγαίνοντας προς τα πίσω ελέγχουμε τους κόμβους.
+\begin{itemize}
+\item
+Αν όλες οι εξερχόμενες ακμές τους είναι προς κόμβους με τιμή 1, τότε ο κόμβος
+είναι lose condition για τον Α, οπότε σημειώνεται με 0.
+\item
+Αλλιώς, υπάρχει κόμβος που οδηγεί σε lose condition (0) για τον Β, άρα ο κόμβος
+αυτός είναι νικηφόρος για τον Α.
+\end{itemize}
+
+Υπάρχει νικηφόρα στρατηγική για τον Α, αν ο κόμβος έναρξης είναι νικηφόρος
+μετά την εκτέλεση του αλγορίθμου.
+
+\begin{algorithm}[H]
+\caption{DAG traversing game}
+\begin{algorithmic}[1]
+\Procedure{Traverse}{$(G(V,E),s)$}
+	\State \emph{Make topological sorting of G}
+    \For{\textbf{all} $u \in G$}
+		\State $C[u] \gets 0$.
+	\EndFor
+    \For{\textbf{all} $u \in G$, \emph{starting from the end -> start}}
+		\For{\textbf{all} $e[u,v] \in AdjList(u)$}
+			\If {$C[v] = 0$}
+				\State $C[u] \gets 1$
+			\EndIf
+		\EndFor
+	\EndFor
+	\If{$C[s] = 1$}
+		\State \textbf{return} Win
+	\Else
+		\State \textbf{return} Lose
+	\EndIf
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+Η πολυπλοκότητα του αλγορίθμου είναι $O(|V| + |E|)$ αφού τόσο το DFS όσο και
+το σώμα του αλγορίθμου εξετάζουν από μία φορά κάθε κόμβο και ακμή.
 
 %}}}
 
